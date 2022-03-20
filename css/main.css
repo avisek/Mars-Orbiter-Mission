@@ -2,8 +2,92 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  overscroll-behavior: none;
 }
 
+/* html {
+  background: url(../img/bg.svg) center / 1000px fixed;
+} */
+
+.Log {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  color: white;
+  pointer-events: none;
+}
+
+
+.Parallax {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 300px;
+          perspective: 300px;
+  -webkit-perspective-origin-x: 100%;
+          perspective-origin-x: 100%;
+}
+.Parallax_Preserve {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.Parallax_Layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transform-origin-x: 100%;
+          transform-origin-x: 100%;
+}
+.Parallax_Layer-fore {
+  -webkit-transform: translateZ(90px) scale(.7);
+          transform: translateZ(90px) scale(.7);
+  z-index: 1;
+}
+.Parallax_Layer-base {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  z-index: 4;
+}
+.Parallax_Layer-back {
+  -webkit-transform: translateZ(-300px) scale(2);
+          transform: translateZ(-300px) scale(2);
+  z-index: 3;
+}
+.Parallax_Layer-deep {
+  -webkit-transform: translateZ(-600px) scale(3);
+          transform: translateZ(-600px) scale(3);
+  z-index: 2;
+}
+
+
+.SmoothScroll {
+  overflow: hidden;
+}
+.SmoothScroll_Content {
+  will-change: transform;
+}
+
+
+.Scene {
+  position: relative;
+  height: 100vh;
+}
+/* .Scene-1 { background: #1a237e; } */
+.Scene-2 { background: #4527a0; }
+.Scene-3 { background: #000328; }
+
+
+.Svg {
+  display: block;
+}
