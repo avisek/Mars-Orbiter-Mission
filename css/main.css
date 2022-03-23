@@ -28,19 +28,25 @@ body {
 
 
 .Parallax {
+  --p: 120;
   height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-perspective: 300px;
-          perspective: 300px;
+  overflow: hidden;
+  -webkit-perspective: calc(var(--p) * 1px);
+          perspective: calc(var(--p) * 1px);
   -webkit-perspective-origin-x: 100%;
           perspective-origin-x: 100%;
+}
+.Parallax_Scroll {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  will-change: transform;
 }
 .Parallax_Preserve {
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
 .Parallax_Layer {
+  --t: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -48,33 +54,30 @@ body {
   bottom: 0;
   -webkit-transform-origin-x: 100%;
           transform-origin-x: 100%;
+  -webkit-transform: translateZ(calc(var(--t) * 1px)) scale(calc(1 + (var(--t) * -1) / var(--p)));
+          transform: translateZ(calc(var(--t) * 1px)) scale(calc(1 + (var(--t) * -1) / var(--p)));
 }
-.Parallax_Layer-fore {
-  -webkit-transform: translateZ(90px) scale(.7);
-          transform: translateZ(90px) scale(.7);
-  z-index: 1;
-}
-.Parallax_Layer-base {
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-  z-index: 4;
-}
-.Parallax_Layer-back {
-  -webkit-transform: translateZ(-300px) scale(2);
-          transform: translateZ(-300px) scale(2);
-  z-index: 3;
-}
-.Parallax_Layer-deep {
-  -webkit-transform: translateZ(-600px) scale(3);
-          transform: translateZ(-600px) scale(3);
-  z-index: 2;
-}
-
-
-.SmoothScroll {
+.Parallax_Portal {
+  --p: 120;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  -webkit-perspective: calc(var(--p) * 1px);
+          perspective: calc(var(--p) * 1px);
+  -webkit-perspective-origin-x: 100%;
+          perspective-origin-x: 100%;
 }
-.SmoothScroll_Content {
+.Parallax_PortalScroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   will-change: transform;
 }
 
