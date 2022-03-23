@@ -162,10 +162,13 @@ function step(timeNow) {
   scrollXSmoothed += (scrollX - scrollXSmoothed) / 5
   scrollYSmoothed += (scrollY - scrollYSmoothed) / 5
 
-  // scrollEl.style.setProperty('transform', `translate(${-scrollX}px, ${-scrollY}px)`)
-  scrollEl.style.setProperty('transform', `translate(${-scrollXSmoothed}px, ${-scrollYSmoothed}px)`)
+  const sx = Math.round(scrollXSmoothed * 1000) / 1000
+  const sy = Math.round(scrollYSmoothed * 1000) / 1000
 
-  portalScrollEls[0].style.setProperty('transform', `translateY(${-scrollYSmoothed}px)`)
+  // scrollEl.style.setProperty('transform', `translate(${-scrollX}px, ${-scrollY}px)`)
+  scrollEl.style.setProperty('transform', `translate(${-sx}px, ${-sy}px)`)
+
+  portalScrollEls[0].style.setProperty('transform', `translateY(${-sy}px)`)
 
   requestAnimationFrame(step)
 }
