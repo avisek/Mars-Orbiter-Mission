@@ -94,3 +94,51 @@ body {
 .Svg {
   display: block;
 }
+
+
+.Positioner {
+  position: absolute;
+}
+
+.Positioner-mars {
+  left: 67vw;
+  top: 66vh;
+  width:  calc(61vh + (100vmax - 100vh) * 0.3);
+  height: calc(61vh + (100vmax - 100vh) * 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.Parallax_Layer-orbiter {
+  animation: Parallax_Layer-orbiter 50s linear infinite;
+}
+@keyframes Parallax_Layer-orbiter {
+  0%   { transform: translateZ(30px) scale(calc(1 + -30 / 120)); }
+
+  15%  { transform: translateZ(50px) scale(calc(1 + -50 / 120)); }
+  35%  { transform: translateZ(50px) scale(calc(1 + -50 / 120)); }
+
+  50%  { transform: translateZ(30px) scale(calc(1 + -30 / 120)); }
+
+  65%  { transform: translateZ(10px) scale(calc(1 + -10 / 120)); }
+  85%  { transform: translateZ(10px) scale(calc(1 + -10 / 120)); }
+
+  100% { transform: translateZ(30px) scale(calc(1 + -30 / 120)); }
+}
+
+.Positioner-orbiter {
+  left: 67vw;
+  top: 66vh;
+  width:  calc((61vh + (100vmax - 100vh) * 0.3) * 2);
+  height: calc(61vh + (100vmax - 100vh) * 0.3);
+  transform: translate(-50%, -50%);
+  transform-origin: right;
+  animation: Positioner-orbiter 8s cubic-bezier(0, 0.2, 0, 1) forwards;
+}
+@keyframes Positioner-orbiter {
+  0% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
