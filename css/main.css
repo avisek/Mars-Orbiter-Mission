@@ -13,10 +13,6 @@ body {
   overscroll-behavior: none;
 }
 
-/* html {
-  background: url(../img/bg.svg) center / 1000px fixed;
-} */
-
 .Log {
   position: fixed;
   top: 0;
@@ -86,7 +82,6 @@ body {
   position: relative;
   height: 100vh;
 }
-/* .Scene-1 { background: #1a237e; } */
 .Scene-2 { background: #4527a0; }
 .Scene-3 { background: #000328; }
 
