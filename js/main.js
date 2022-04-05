@@ -1,6 +1,16 @@
+import { cubicBezier } from "./utils.js"
+
 const containerEl = document.querySelector('.Parallax')
 const scrollEl = document.querySelector('.Parallax_Scroll')
-const portalScrollEls = document.querySelectorAll('.Parallax_PortalScroll')
+
+const s1MarsScroll = document.querySelectorAll('.Parallax_PortalScroll')[0]
+const s1Tip = document.querySelector('.Tip')
+
+const s3Rocket = document.querySelector('#s-launch-rocket')
+const s3Stand1 = document.querySelector('#s-launch-stand1')
+const s3Stand2 = document.querySelector('#s-launch-stand2')
+const s3Tower1Light = document.querySelector('#s-launch-tower1Light')
+const s3Tower2Light = document.querySelector('#s-launch-tower2Light')
 
 let containerWidth = 0
 let containerHeight = 0
@@ -17,13 +27,24 @@ let touchId = null
 let lastTouchX = 0
 let lastTouchY = 0
 let firstMoveExceeded = false
-let lastTime = 0
 let lastMove = 0
-let timeLast = 0
+let lastTime = 0
+
+const sceneEls = document.querySelectorAll('.Scene')
+const sceneRects = []
+function updateSceneRects() {
+  sceneEls.forEach((s, i) => {
+    sceneRects[i] = {
+      top: s.offsetTop,
+      height: s.offsetHeight
+    }
+  })
+}
 
 new ResizeObserver(() => {
   containerWidth = containerEl.offsetWidth
   containerHeight = containerEl.offsetHeight
+  updateSceneRects()
 }).observe(containerEl)
 new ResizeObserver(() => {
   scrollWidth = scrollEl.offsetWidth
@@ -141,9 +162,9 @@ function scroll(x, y) {
   scrollY = y
 }
 
-function step(timeNow) {
-  const dt = Math.min(timeNow - timeLast, 150)
-  timeLast = timeNow
+function step(now) {
+  const dt = Math.min(now - lastTime, 150)
+  lastTime = now
 
   if (!touched) {
     velocityX += -velocityX * 0.003 * dt
@@ -168,12 +189,39 @@ function step(timeNow) {
   // scrollEl.style.setProperty('transform', `translate(${-scrollX}px, ${-scrollY}px)`)
   scrollEl.style.setProperty('transform', `translate(${-sx}px, ${-sy}px)`)
 
-  portalScrollEls[0].style.setProperty('transform', `translateY(${-sy}px)`)
+  // Scene 1
+  if (sy < sceneRects[0].height) {
+    s1MarsScroll.style.setProperty('transform', `translateY(${-sy}px)`)
+    s1Tip.style.setProperty('opacity', sy > sceneRects[0].height * 0.25 ? 0 : 1)
+  }
+
+  // Scene 3
+  const s3 = (sy + containerHeight - sceneRects[2].top) / (sceneRects[2].height + containerHeight)
+  if (0 <= s3 && s3 <= 1) {
+    //                             Start Duration Scale down so it wont go above 1
+    let rocketTranslation = ((s3 - 0.32) / 0.5) / 1.36
+    rocketTranslation = cubicBezier(.25,0,.5,.1, rocketTranslation) * (sceneRects[2].height / 2) * 1.36
+    s3Rocket.style.setProperty('transform', `translateY(${-rocketTranslation}px)`)
+
+    let standRotation = (s3 - 0.26) / 0.12
+    standRotation = cubicBezier(.5,0,.7,1, standRotation) * 7
+    s3Stand1.style.setProperty('transform', `rotate(${-standRotation}deg)`)
+    s3Stand2.style.setProperty('transform', `rotate(${standRotation}deg)`)
+
+    let towerLight = s3 > 0.33 ? 1 : 0
+    s3Tower1Light.style.setProperty('transform', `scale(${towerLight})`)
+    s3Tower2Light.style.setProperty('transform', `scale(${towerLight})`)
+  }
 
   requestAnimationFrame(step)
 }
 
-timeLast = performance.now()
+containerWidth = containerEl.offsetWidth
+containerHeight = containerEl.offsetHeight
+updateSceneRects()
+scrollWidth = scrollEl.offsetWidth
+scrollHeight = scrollEl.offsetHeight
+lastTime = performance.now()
 requestAnimationFrame(step)
 
 document.documentElement.onclick = function() { this.requestFullscreen() }
