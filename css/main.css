@@ -94,10 +94,6 @@ body {
   min-height: 100vh;
   padding: 5vw;
 }
-/* .Scene-2 { background: #4527a0; } */
-.Scene-2 { background: #3e02df; }
-/* .Scene-4 { background: #000328; } */
-.Scene-4 { background: #1f03b7; }
 
 
 p {
@@ -210,6 +206,17 @@ p {
 }
 
 
+/* Scene 2 */
+.Scene-2 {
+  background-color: #300361;
+}
+
+.Svg-trajectory {
+  max-width: 80vmin;
+  margin: auto;
+}
+
+
 /* Scene 3 */
 
 .Scene-3 {
@@ -239,4 +246,10 @@ p {
 }
 #s-launch-stand2 {
   transform-origin: 548px 960px;
+}
+
+
+/* Scene 4 */
+.Scene-4 {
+  background: #1f03b7;
 }

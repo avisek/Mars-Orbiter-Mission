@@ -626,6 +626,229 @@
           <p>Marking India's first venture into the interplanetary space, MOM will explore and observe Mars surface features, morphology, mineralogy and the Martian atmosphere. Further, a specific search for methane in the Martian atmosphere will provide information about the possibility or the past existence of life on the planet.</p>
           <p>The enormous distances involved in interplanetary missions present a demanding challenge; developing and mastering the technologies essential for these missions will open endless possibilities for space exploration. After leaving Earth, the Orbiter will have to endure the Interplanetary space for 300 days before Mars capture. Apart from deep space communications and navigation-guidance-control capabilities, the mission will require autonomy at the spacecraft end to handle contingencies.</p>
           <p>Once India decided to go to Mars, ISRO had no time to lose as the nearest launch window was only a few months away and it could not afford to lose the chance, given the next launch would present itself after over 780 days, in 2016. Thus, mission planning, manufacturing the spacecraft and the launch vehicle and readying the support systems took place swiftly.</p>
+
+          <svg class="Svg Svg-trajectory" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <clipPath id="s-trajectory-earthClip">
+                <circle cx="230" cy="500" r="32" fill="#0079e0"/>
+              </clipPath>
+              <clipPath id="s-trajectory-marsClip">
+                <circle cx="86" cy="500" r="22" fill="#ff3800"/>
+              </clipPath>
+
+              <radialGradient id="s-trajectory-sunGlow">
+                <stop offset="65%" stop-color="#48068e"/>
+                <stop offset="100%" stop-color="#48068e" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="s-trajectory-earthGlow">
+                <stop offset="60%" stop-color="#300361"/>
+                <stop offset="100%" stop-color="#300361" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="s-trajectory-marsGlow">
+                <stop offset="60%" stop-color="#300361"/>
+                <stop offset="100%" stop-color="#300361" stop-opacity="0"/>
+              </radialGradient>
+
+              <clipPath id="s-trajectory-pathEarthFadeClip">
+                <rect x="0" y="500" width="1000" height="500"></rect>
+              </clipPath>
+              <linearGradient id="s-trajectory-pathEarthFadeGradient">
+                <stop offset="10%" stop-color="#300361"></stop>
+                <stop offset="80%" stop-color="#300361" stop-opacity="0.5"></stop>
+                <stop offset="100%" stop-color="#300361" stop-opacity="0"></stop>
+              </linearGradient>
+
+              <clipPath id="s-trajectory-pathMarsFadeClip">
+                <rect x="0" y="500" width="1000" height="500"></rect>
+              </clipPath>
+              <linearGradient id="s-trajectory-pathMarsFadeGradient">
+                <stop offset="0%" stop-color="#300361"></stop>
+                <stop offset="50%" stop-color="#300361" stop-opacity="0.5"></stop>
+                <stop offset="100%" stop-color="#300361" stop-opacity="0"></stop>
+              </linearGradient>
+
+              <clipPath id="s-trajectory-pathSpacecraftFadeClip">
+                <rect x="0" y="500" width="1000" height="500"></rect>
+              </clipPath>
+              <linearGradient id="s-trajectory-pathSpacecraftFadeGradient">
+                <stop offset="0%" stop-color="#300361"></stop>
+                <stop offset="50%" stop-color="#300361" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="1000" height="1000" fill="#300361"/>
+
+            <path id="s-trajectory-pathSpacecraft" d="M230,500c0,188.88,153.12,342,342,342S914,688.88,914,500" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4" stroke-dasharray="12 34"/>
+            <circle id="s-trajectory-pathSpacecraftFade" cx="572" cy="500" r="342" stroke="url(#s-trajectory-pathSpacecraftFadeGradient)" stroke-width="6" fill="none" clip-path="url(#s-trajectory-pathSpacecraftFadeClip)"/>
+            <path id="s-trajectory-pathSpacecraftBlock" d="M230,500c0,188.88,153.12,342,342,342S914,688.88,914,500" fill="none" stroke="#300361" stroke-width="6"/>
+
+            <path id="s-trajectory-pathEarth" d="M230,500c0,149.12,120.88,270,270,270S770,649.12,770,500,649.12,230,500,230,230,350.88,230,500c0,149.12,120.88,270,270,270S770,649.12,770,500,649.12,230,500,230,230,350.88,230,500" fill="none" stroke="#0079e0" stroke-miterlimit="10" stroke-width="4"/>
+            <circle id="s-trajectory-pathEarthFade" cx="500" cy="500" r="270" stroke="url(#s-trajectory-pathEarthFadeGradient)" stroke-width="6" fill="none" clip-path="url(#s-trajectory-pathEarthFadeClip)"/>
+
+            <g id="s-trajectory-angle">
+              <path d="M86,500A412.7,412.7,0,0,0,207.26,792.74L500,500Z" fill="#43d05c" opacity="0.4"/>
+              <line id="s-trajectory-angleLine1" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" x1="500" y1="500" x2="86" y2="500" fill="none" stroke="#43d05c" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4"/>
+              <line id="s-trajectory-angleLine2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" x1="500" y1="500" x2="207.26" y2="792.74" fill="none" stroke="#43d05c" stroke-linecap="round" stroke-miterlimit="10" stroke-width="4"/>
+            </g>
+
+            <path id="s-trajectory-pathMars" d="M207.26,792.74c161.67,161.68,423.81,161.68,585.48,0s161.68-423.81,0-585.48-423.81-161.68-585.48,0-161.68,423.81,0,585.48" fill="none" stroke="#f92e30" stroke-miterlimit="10" stroke-width="4"/>
+            <circle id="s-trajectory-pathMarsFade" cx="500" cy="500" r="414" stroke="url(#s-trajectory-pathMarsFadeGradient)" stroke-width="6" fill="none" clip-path="url(#s-trajectory-pathMarsFadeClip)"/>
+
+            <g id="s-trajectory-sun" transform="translate(500 500) scale(1.5) translate(-500 -500)">
+              <circle cx="500" cy="500" r="60" fill="url(#s-trajectory-sunGlow)"/>
+              <circle cx="500" cy="500" r="36" fill="#fff" stroke="#ffdc06" stroke-miterlimit="10" stroke-width="10"/>
+              <circle cx="496" cy="504" r="25" fill="#fffacd"/>
+            </g>
+            <g id="s-trajectory-earth" transform="scale(1.25) translate(-230 -500)">
+              <circle cx="230" cy="500" r="43" fill="url(#s-trajectory-earthGlow)"/>
+              <circle cx="230" cy="500" r="32" fill="#0079e0"/>
+              <g clip-path="url(#s-trajectory-earthClip)">
+                <g id="s-trajectory-earthSurface">
+                  <g>
+                    <rect x="184" y="499" width="38" height="13" rx="6.5" fill="#49d060"/>
+                    <path d="M237,478v-1a3,3,0,0,0-3-3H215a3,3,0,0,0-3,3v1a3,3,0,0,0,3,3h1.5a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,1-1.5,1.5h-1a2.5,2.5,0,0,0-2.5,2.5h0a2.5,2.5,0,0,0,2.5,2.5h9a2.5,2.5,0,0,0,2.5-2.5h0a2.5,2.5,0,0,0-2.5-2.5h-1a1.5,1.5,0,0,1-1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5H234A3,3,0,0,0,237,478Z" fill="#49d060"/>
+                    <rect x="238" y="485" width="29" height="9" rx="4.5" fill="#49d060"/>
+                    <path d="M242,520.5h0a1.5,1.5,0,0,1,1.5-1.5h.5a5,5,0,0,0,5-5h0a5,5,0,0,0-5-5h-8a5,5,0,0,0-5,5h0a5,5,0,0,0,5,5h.5a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,1-1.5,1.5h-8a3.5,3.5,0,0,0-3.5,3.5h0a3.5,3.5,0,0,0,3.5,3.5h26a3.5,3.5,0,0,0,3.5-3.5h0a3.5,3.5,0,0,0-3.5-3.5h-11A1.5,1.5,0,0,1,242,520.5Z" fill="#49d060"/>
+                    <rect x="200" y="489" width="9" height="4" rx="2" fill="#fff"/>
+                    <rect x="208" y="504" width="16" height="7" rx="3.5" fill="#fff"/>
+                    <rect x="216" y="496" width="13" height="6" rx="3" fill="#fff"/>
+                    <rect x="214" y="519" width="9" height="4" rx="2" fill="#fff"/>
+                    <rect x="236" y="482" width="13" height="6" rx="3" fill="#fff"/>
+                    <path d="M257,501.5h0a3.5,3.5,0,0,0-3.5-3.5h-14a3.5,3.5,0,0,0-3.5,3.5h0a3.5,3.5,0,0,0,3.5,3.5H243a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1h-1a2,2,0,0,0-2,2h0a2,2,0,0,0,2,2h7a2,2,0,0,0,2-2h0a2,2,0,0,0-2-2h-1a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h5.5A3.5,3.5,0,0,0,257,501.5Z" fill="#fff"/>
+                  </g>
+                  <g>
+                    <rect x="258" y="499" width="38" height="13" rx="6.5" fill="#49d060"/>
+                    <path d="M311,478v-1a3,3,0,0,0-3-3H289a3,3,0,0,0-3,3v1a3,3,0,0,0,3,3h1.5a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,1-1.5,1.5h-1a2.5,2.5,0,0,0-2.5,2.5h0a2.5,2.5,0,0,0,2.5,2.5h9a2.5,2.5,0,0,0,2.5-2.5h0a2.5,2.5,0,0,0-2.5-2.5h-1a1.5,1.5,0,0,1-1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5H308A3,3,0,0,0,311,478Z" fill="#49d060"/>
+                    <rect x="312" y="485" width="29" height="9" rx="4.5" fill="#49d060"/>
+                    <path d="M316,520.5h0a1.5,1.5,0,0,1,1.5-1.5h.5a5,5,0,0,0,5-5h0a5,5,0,0,0-5-5h-8a5,5,0,0,0-5,5h0a5,5,0,0,0,5,5h.5a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,1-1.5,1.5h-8a3.5,3.5,0,0,0-3.5,3.5h0a3.5,3.5,0,0,0,3.5,3.5h26a3.5,3.5,0,0,0,3.5-3.5h0a3.5,3.5,0,0,0-3.5-3.5h-11A1.5,1.5,0,0,1,316,520.5Z" fill="#49d060"/>
+                    <rect x="274" y="489" width="9" height="4" rx="2" fill="#fff"/>
+                    <rect x="282" y="504" width="16" height="7" rx="3.5" fill="#fff"/>
+                    <rect x="290" y="496" width="13" height="6" rx="3" fill="#fff"/>
+                    <rect x="288" y="519" width="9" height="4" rx="2" fill="#fff"/>
+                    <rect x="310" y="482" width="13" height="6" rx="3" fill="#fff"/>
+                    <path d="M331,501.5h0a3.5,3.5,0,0,0-3.5-3.5h-14a3.5,3.5,0,0,0-3.5,3.5h0a3.5,3.5,0,0,0,3.5,3.5H317a1,1,0,0,1,1,1h0a1,1,0,0,1-1,1h-1a2,2,0,0,0-2,2h0a2,2,0,0,0,2,2h7a2,2,0,0,0,2-2h0a2,2,0,0,0-2-2h-1a1,1,0,0,1-1-1h0a1,1,0,0,1,1-1h5.5A3.5,3.5,0,0,0,331,501.5Z" fill="#fff"/>
+                  </g>
+                </g>
+                <circle cx="239" cy="494" r="22" fill="#ffffc0" opacity="0.2"/>
+              </g>
+            </g>
+            <g id="s-trajectory-spacecraft" transform="translate(-568.25 -841.75)">
+              <g id="s-trajectory-spacecraftFire" display="none">
+                <circle id="s-trajectory-spacecraftFireOuter" cx="550.63" cy="840.5" r="11.25" fill="#ffce1e"/>
+                <circle id="s-trajectory-spacecraftFireInner" cx="550.63" cy="840.5" r="8" fill="#fff"/>
+                <rect id="s-trajectory-spacecraftFireTrail" x="523.18" y="834.3" width="27.5" height="10" rx="5" transform="translate(75.19 -43.6) rotate(5)" fill="#fff"/>
+              </g>
+              <g>
+                <rect x="566.39" y="836.69" width="53.75" height="16.28" rx="8.14" transform="translate(-36.29 26.68) rotate(-2.5)" fill="#f1e8ff"/>
+                <path d="M571.37,828.36h29.84a9.19,9.19,0,0,1,9.19,9.19v0a.81.81,0,0,1-.81.81H571.37a5,5,0,0,1-5-5v0A5,5,0,0,1,571.37,828.36Z" transform="translate(14.63 -10.14) rotate(1)" fill="#f1e8ff"/>
+                <rect x="571.35" y="846.52" width="45.02" height="6.43" rx="3.21" transform="matrix(1, -0.04, 0.04, 1, -36.5, 26.71)" fill="#b296ff"/>
+                <rect x="567.87" y="828.34" width="38.01" height="8.43" rx="4.21" transform="translate(14.62 -10.12) rotate(1)" fill="#fff"/>
+              </g>
+              <g>
+                <polygon points="579.13 832.75 559.88 823.5 559.88 832.75 579.13 832.75" fill="#bc92f5" stroke="#bc92f5" stroke-linejoin="round" stroke-width="6.25"/>
+                <polygon points="572.63 832.75 559.88 826.5 559.88 832.75 564.38 832.75 572.63 832.75" fill="#fff" stroke="#fff" stroke-linejoin="round" stroke-width="6.25"/>
+                <polygon points="564.38 825.66 559.88 823.5 559.88 832.75 564.38 832.75 564.38 825.66" fill="#0084ff" stroke="#0084ff" stroke-linejoin="round" stroke-width="6.25"/>
+                <polygon points="564.38 832.75 559.88 832.75 559.88 826.5 564.38 828.71 564.38 832.75" fill="#5b26ff" stroke="#5b26ff" stroke-linejoin="round" stroke-width="6.25"/>
+              </g>
+              <g>
+                <path d="M558.48,848.4l-2.86-2a.58.58,0,0,1-.24-.47V836.8a.58.58,0,0,1,.24-.47l2.86-2a.6.6,0,0,1,.32-.1h0a.58.58,0,0,1,.58.57v13.11a.58.58,0,0,1-.58.57h0A.6.6,0,0,1,558.48,848.4Z" fill="#5b26ff" stroke="#5b26ff" stroke-linejoin="round" stroke-width="4"/>
+                <path d="M555.38,840.75v-4a.58.58,0,0,1,.24-.47l2.86-2a.6.6,0,0,1,.32-.1h0a.58.58,0,0,1,.58.57V840a.58.58,0,0,1-.54.57Z" fill="#754bff" stroke="#754bff" stroke-linejoin="round" stroke-width="4"/>
+              </g>
+              <g>
+                <path d="M577.88,857h-15.5a3,3,0,0,1-3-3V830.16a2,2,0,0,1,.69-1.51l2.49-2.16a2,2,0,0,1,1.31-.49h14a6.51,6.51,0,0,1,6.5,6.5v18A6.51,6.51,0,0,1,577.88,857Z" fill="#ff605e"/>
+                <path d="M561.38,845.75h18.25a4.75,4.75,0,0,1,4.75,4.75v0a6.5,6.5,0,0,1-6.5,6.5h-15.5a3,3,0,0,1-3-3v-6.25A2,2,0,0,1,561.38,845.75Z" fill="#d64095"/>
+                <path d="M577.88,839.75H562.2a2,2,0,0,1-1.41-.59l-.83-.82a2,2,0,0,1-.58-1.42v-6.76a2,2,0,0,1,.69-1.51l2.49-2.16a2,2,0,0,1,1.31-.49h14a6.51,6.51,0,0,1,6.5,6.5v.75A6.51,6.51,0,0,1,577.88,839.75Z" fill="#ff9181"/>
+              </g>
+              <g>
+                <polygon points="579.13 850.75 559.88 860 559.88 850.75 579.13 850.75" fill="#d8ccff" stroke="#d8ccff" stroke-linejoin="round" stroke-width="6.25"/>
+                <polygon points="572.63 850.75 559.88 857 559.88 850.75 564.38 850.75 572.63 850.75" fill="#fff" stroke="#fff" stroke-linejoin="round" stroke-width="6.25"/>
+                <polygon points="564.38 857.84 559.88 860 559.88 850.75 564.38 850.75 564.38 857.84" fill="#0084ff" stroke="#0084ff" stroke-linejoin="round" stroke-width="6.25"/>
+                <polygon points="564.38 850.75 559.88 850.75 559.88 857 564.38 854.79 564.38 850.75" fill="#24b9ff" stroke="#24b9ff" stroke-linejoin="round" stroke-width="6.25"/>
+              </g>
+              <g>
+                <rect x="588.88" y="843.5" width="8.25" height="5.25" rx="1.25" fill="#feb009" stroke="#feb009" stroke-linejoin="round" stroke-width="6.25"/>
+                <path d="M589.88,848.75h6a1.24,1.24,0,0,0,1.24-1.25V847" fill="none" stroke="#ff8201" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25"/>
+                <path d="M596.12,843.5h-6a1.24,1.24,0,0,0-1.24,1.25v.5" fill="none" stroke="#ffd34e" stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25"/>
+              </g>
+              <g>
+                <path d="M612.88,838.75h3.25a5.25,5.25,0,0,1,5.25,5.25v0a5.25,5.25,0,0,1-5.25,5.25h-3.25a0,0,0,0,1,0,0v-10.5A0,0,0,0,1,612.88,838.75Z" fill="#4a1fd2" stroke="#4a1fd2" stroke-linejoin="round" stroke-width="5.5"/>
+                <path d="M612.88,838.75h3.38a2.87,2.87,0,0,1,2.87,2.87v0a2.87,2.87,0,0,1-2.87,2.87h-3.38a0,0,0,0,1,0,0v-5.75A0,0,0,0,1,612.88,838.75Z" fill="#5b26ff" stroke="#5b26ff" stroke-linejoin="round" stroke-width="5.5"/>
+              </g>
+              <g>
+                <path d="M603.12,833.5s2-.5,8,4.25h-6.24a1.75,1.75,0,0,1-1.76-1.75Z" fill="#0084ff" stroke="#0084ff" stroke-linejoin="round" stroke-width="10.5"/>
+                <path d="M601.62,833s.76-3.25,8,1.75l-7.22.23a.76.76,0,0,1-.78-.75Z" fill="#24b9ff" stroke="#24b9ff" stroke-linejoin="round" stroke-width="7.5"/>
+              </g>
+            </g>
+            <g id="s-trajectory-mars" transform="scale(1.5) translate(-86 -500)">
+              <circle cx="86" cy="500" r="32" fill="url(#s-trajectory-marsGlow)"/>
+              <circle cx="86" cy="500" r="22" fill="#ff3800"/>
+              <g clip-path="url(#s-trajectory-marsClip)">
+                <g id="s-trajectory-marsSurface">
+                  <g>
+                    <path d="M64,478v4.5a1.5,1.5,0,0,0,1.5,1.5h3a1.5,1.5,0,0,0,1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5H85a2,2,0,0,1,2,2h0a2,2,0,0,0,2,2h7a2,2,0,0,0,2-2h0a2,2,0,0,1,2-2h7.5a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,0,1.5,1.5h8a1.5,1.5,0,0,0,1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5h11a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,0,1.5,1.5h3a1.5,1.5,0,0,0,1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5h1a1.5,1.5,0,0,1,1.5,1.5h0a1.5,1.5,0,0,0,1.5,1.5h3a1.5,1.5,0,0,0,1.5-1.5h0a1.5,1.5,0,0,1,1.5-1.5H166a2,2,0,0,1,2,2h0a2,2,0,0,0,2,2h6a2,2,0,0,0,2-2h0a2,2,0,0,1,2-2h8v-3Z" fill="#fff"/>
+                    <path d="M100,518v-1a2,2,0,0,0-2-2H88a2,2,0,0,0-2,2h0a2,2,0,0,1-2,2H79a1,1,0,0,1-1-1h0a1,1,0,0,0-1-1H69a1,1,0,0,0-1,1h0a1,1,0,0,1-1,1H45a2,2,0,0,0-2,2v1h59v-2a1,1,0,0,0-1-1h0A1,1,0,0,1,100,518Z" fill="#fff"/>
+                    <path d="M180,518v-1a2,2,0,0,0-2-2H168a2,2,0,0,0-2,2h0a2,2,0,0,1-2,2h-4a1,1,0,0,1-1-1h0a1,1,0,0,0-1-1h-9a1,1,0,0,0-1,1h0a1,1,0,0,1-1,1h-3a1,1,0,0,1-1-1h0a1,1,0,0,0-1-1h-2a1,1,0,0,0-1,1h0a1,1,0,0,1-1,1h-2.5a1.5,1.5,0,0,1-1.5-1.5h0a1.5,1.5,0,0,0-1.5-1.5h-3a1.5,1.5,0,0,0-1.5,1.5h0a1.5,1.5,0,0,1-1.5,1.5H126a3,3,0,0,0-3,3h59v-2a1,1,0,0,0-1-1h0A1,1,0,0,1,180,518Z" fill="#fff"/>
+                  </g>
+                  <g>
+                    <rect x="63" y="508" width="12" height="6" rx="3" fill="#ff5804"/>
+                    <rect x="67" y="501" width="28" height="12" rx="6" fill="#ff5804"/>
+                    <rect x="80" y="512" width="10" height="5" rx="2.5" fill="#ff5804"/>
+                    <rect x="85" y="495" width="11" height="4" rx="2" fill="#ff5804"/>
+                    <rect x="86" y="486" width="37" height="6" rx="3" fill="#ff5804"/>
+                    <rect x="99" y="501" width="27" height="13" rx="6.5" fill="#ff5804"/>
+                    <rect x="119" y="484" width="8" height="4" rx="2" fill="#ff5804"/>
+                    <rect x="118" y="496" width="8" height="2" rx="1" fill="#ff5804"/>
+                    <rect x="143" y="508" width="12" height="6" rx="3" fill="#ff5804"/>
+                    <rect x="147" y="501" width="28" height="12" rx="6" fill="#ff5804"/>
+                    <rect x="160" y="512" width="10" height="5" rx="2.5" fill="#ff5804"/>
+                    <rect x="165" y="495" width="11" height="4" rx="2" fill="#ff5804"/>
+                    <rect x="167" y="486" width="37" height="6" rx="3" fill="#ff5804"/>
+                    <rect x="179" y="501" width="27" height="13" rx="6.5" fill="#ff5804"/>
+                  </g>
+                  <g>
+                    <path d="M79,491.5h0a3.5,3.5,0,0,0-3.5-3.5h-23a3.5,3.5,0,0,0-3.5,3.5h0a3.5,3.5,0,0,0,3.5,3.5H62a2,2,0,0,1,2,2h0a2,2,0,0,1-2,2h-.5a2.5,2.5,0,0,0-2.5,2.5h0a2.5,2.5,0,0,0,2.5,2.5h9a2.5,2.5,0,0,0,2.5-2.5h0a2.5,2.5,0,0,0-2.5-2.5H70a2,2,0,0,1-2-2h0a2,2,0,0,1,2-2h5.5A3.5,3.5,0,0,0,79,491.5Z" fill="#ff6c02"/>
+                    <rect x="98" y="501" width="10" height="4" rx="2" fill="#ff6c02"/>
+                    <rect x="113" y="488" width="9" height="3" rx="1.5" fill="#ff6c02"/>
+                    <rect x="122" y="510" width="11" height="3" rx="1.5" fill="#ff6c02"/>
+                    <path d="M159,491.5h0a3.5,3.5,0,0,0-3.5-3.5h-23a3.5,3.5,0,0,0-3.5,3.5h0a3.5,3.5,0,0,0,3.5,3.5H142a2,2,0,0,1,2,2h0a2,2,0,0,1-2,2h-.5a2.5,2.5,0,0,0-2.5,2.5h0a2.5,2.5,0,0,0,2.5,2.5h9a2.5,2.5,0,0,0,2.5-2.5h0a2.5,2.5,0,0,0-2.5-2.5H150a2,2,0,0,1-2-2h0a2,2,0,0,1,2-2h5.5A3.5,3.5,0,0,0,159,491.5Z" fill="#ff6c02"/>
+                    <rect x="178" y="501" width="10" height="4" rx="2" fill="#ff6c02"/>
+                  </g>
+                  <g>
+                    <rect x="74" y="503" width="16" height="7" rx="3.5" fill="#f92e30"/>
+                    <rect x="105" y="513" width="16" height="6" rx="3" fill="#f92e30"/>
+                    <rect x="117" y="500" width="18" height="8" rx="4" fill="#f92e30"/>
+                    <rect x="154" y="503" width="16" height="7" rx="3.5" fill="#f92e30"/>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <animateTransform xlink:href="#s-trajectory-earthSurface" attributeName="transform" attributeType="XML" type="translate" from="0" to="-74" dur="3s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#s-trajectory-marsSurface" attributeName="transform" attributeType="XML" type="translate" from="0" to="-80" dur="3s" repeatCount="indefinite"/>
+
+            <animateMotion xlink:href="#s-trajectory-earth" dur="7s" begin="0s" keyPoints="0; 0; 0.375; 1" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 1 1; .4,.4,.5,1" repeatCount="indefinite">
+              <mpath xlink:href="#s-trajectory-pathEarth" />
+            </animateMotion>
+            <animateMotion xlink:href="#s-trajectory-mars" dur="7s" begin="0s" keyPoints="0; 0; 0.375; 1" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 1 1; .4,.4,.5,1" repeatCount="indefinite">
+              <mpath xlink:href="#s-trajectory-pathMars" />
+            </animateMotion>
+            <animateMotion xlink:href="#s-trajectory-spacecraft" dur="7s" begin="0s" keyPoints="0; 0; 1; 1" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; .44,.08,.94,.79; 0 0 0.5 1" rotate="auto" fill="freeze" repeatCount="indefinite">
+              <mpath xlink:href="#s-trajectory-pathSpacecraft" />
+            </animateMotion>
+
+            <animateTransform xlink:href="#s-trajectory-pathEarthFade" attributeName="transform" attributeType="XML" type="rotate" dur="7s" begin="0s" values="0 500 500; 0 500 500; -270 500 500; -720 500 500" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 1 1; .4,.4,.5,1" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#s-trajectory-pathMarsFade" attributeName="transform" attributeType="XML" type="rotate" dur="7s" begin="0s" values="-45 500 500; -45 500 500; -180 500 500; -405 500 500" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 1 1; .4,.4,.5,1" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#s-trajectory-pathSpacecraftFade" attributeName="transform" attributeType="XML" type="rotate" dur="7s" begin="0s" values="180 572 500; 180 572 500; 0 572 500; 0 572 500;" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0 0 0.5 1" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#s-trajectory-pathSpacecraftBlock" attributeName="transform" attributeType="XML" type="rotate" dur="7s" begin="0s" values="0 572 500; 0 572 500; -180 572 500; -180 572 500;" keyTimes="0; 0.1; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; .44,.08,.94,.79; 0 0 0.5 1" repeatCount="indefinite"/>
+            <animate xlink:href="#s-trajectory-pathSpacecraft" attributeName="opacity" values="1; 1; 0; 0" keyTimes="0; 0.4; 0.6; 1" dur="7s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+
+            <animate xlink:href="#s-trajectory-angleLine1" attributeName="stroke-dashoffset" values="0; 0; 1; 1; 0" keyTimes="0; 0.1; 0.3; 0.75; 1" dur="7s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+            <animate xlink:href="#s-trajectory-angleLine2" attributeName="stroke-dashoffset" values="0; 0; 1; 1; 0" keyTimes="0; 0.1; 0.3; 0.8; 1" dur="7s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+            <animate xlink:href="#s-trajectory-angle"      attributeName="opacity"           values="1; 1; 0; 0; 1" keyTimes="0; 0.1; 0.3; 0.75; 1" dur="7s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+
+            <animateTransform xlink:href="#s-trajectory-spacecraft" attributeName="transform" attributeType="XML" type="scale" dur="7s" begin="0s" values="0; 0; 1; 1; 0; 0" keyTimes="0; 0.05; 0.1; 0.5; 0.55; 1" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#s-trajectory-spacecraft" attributeName="transform" attributeType="XML" type="translate" values="-568.25 -841.75" dur="0s" fill="freeze" additive="sum"/>
+            <animateTransform xlink:href="#s-trajectory-spacecraft" attributeName="transform" attributeType="XML" type="rotate" values="-5 568.25 841.75" dur="0s" fill="freeze" additive="sum"/>
+          </svg>
         </div>
 
         <div class="Parallax_Preserve Scene Scene-3">
