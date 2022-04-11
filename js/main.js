@@ -12,6 +12,9 @@ const s3Stand2 = document.querySelector('#s-launch-stand2')
 const s3Tower1Light = document.querySelector('#s-launch-tower1Light')
 const s3Tower2Light = document.querySelector('#s-launch-tower2Light')
 
+const s5Bg = document.querySelector('.Parallax_Layer-moiBg')
+const s5Progress = document.querySelector('#s-moi-porgress')
+
 let containerWidth = 0
 let containerHeight = 0
 let scrollWidth = 0
@@ -198,6 +201,7 @@ function step(now) {
   // Scene 3
   const s3 = (sy + containerHeight - sceneRects[2].top) / (sceneRects[2].height + containerHeight)
   if (0 <= s3 && s3 <= 1) {
+    s5Bg.style.setProperty('--t', -121)
     //                             Start Duration Scale down so it wont go above 1
     let rocketTranslation = ((s3 - 0.32) / 0.5) / 1.36
     rocketTranslation = cubicBezier(.25,0,.5,.1, rocketTranslation) * (sceneRects[2].height / 2) * 1.36
@@ -212,6 +216,20 @@ function step(now) {
     s3Tower1Light.style.setProperty('transform', `scale(${towerLight})`)
     s3Tower2Light.style.setProperty('transform', `scale(${towerLight})`)
   }
+
+    // Scene 5
+    const s5 = (sy + containerHeight - sceneRects[4].top) / (sceneRects[4].height + containerHeight)
+    if (0 <= s5 && s5 <= 1) {
+      s5Bg.style.setProperty('--t', -119)
+      // console.log(s5)
+      // let progress = (sy + containerHeight * 1.3 - sceneRects[4].top) / ((sceneRects[4].height + containerHeight) * 1.1)
+      let progress = s5
+      console.log(progress)
+      // console.log((sy + containerHeight * -0.5 - sceneRects[4].top))
+      progress = cubicBezier(0,0,1,1, progress)
+      s5Progress.setAttribute('keyPoints', `${progress}; ${progress}`)
+      s5Progress.beginElement()
+    }
 
   requestAnimationFrame(step)
 }
