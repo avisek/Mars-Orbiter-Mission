@@ -1581,7 +1581,6 @@
         <div class="Parallax_Preserve Scene Scene-4"></div>
 
         <div class="Parallax_Preserve Scene Scene-5">
-          <!-- <div class="Parallax_Preserve MoiWorld"> -->
             <div class="Parallax_Layer Parallax_Layer-moiBg" style="--t: -121;">
               <svg class="Svg Svg-moiBg" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
@@ -1928,6 +1927,13 @@
                     <rect width="12" height="12" rx="2" transform="translate(0 12) rotate(-90)" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
                   </clipPath>
                 </defs>
+                <g id="s-moi-mars">
+                  <circle cx="132" cy="1317.69" r="200" fill="#c53445"/>
+                  <rect x="139.18" y="1300.58" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
+                  <rect x="29.4" y="1365.34" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
+                  <rect x="60.05" y="1225.62" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
+                </g>
+                <path id="s-moi-path" opacity="0.25" d="M-173.58-576.22S599.58,715.72,481.1,1399.53c-74.83,431.87-625.32,535.52-844.3,179.24" fill="none" stroke="#00c9a2" stroke-miterlimit="10" stroke-width="4"/>
                 <g id="s-moi-spacecraft"><g transform="scale(2.5) translate(-23 -23)">
                   <line x1="30" y1="19" x2="30" y2="27" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
                   <line x1="20" y1="35" x2="20" y2="30" fill="#1ae8d1" stroke="#17ccc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
@@ -1980,7 +1986,7 @@
                   <line x1="11" y1="15" x2="11" y2="31" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                   <line x1="11" y1="15" x2="11" y2="21" fill="none" stroke="#9b81f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                   <line x1="20" x2="20" y2="12" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <g>
+                  <g id="s-moi-spacecraftFire" transform-origin="38 23">
                     <path d="M45,21H41.45a4,4,0,1,0,0,4H45a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,53,21Z" fill="#fff"/>
                     <path d="M45,21H41.45a4,4,0,1,0,0,4H45a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,53,21Z" fill="none" stroke="#ffc521" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
                   </g>
@@ -2000,20 +2006,40 @@
                     <path d="M10,43h0A10,10,0,0,1,20,33h0A10,10,0,0,1,30,43H10Z" fill="none" stroke="#abddf7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 41"/>
                   </g>
                 </g></g>
-                <g id="s-moi-mars">
-                  <circle cx="132" cy="1317.69" r="200" fill="#c53445"/>
-                  <rect x="139.18" y="1300.58" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
-                  <rect x="29.4" y="1365.34" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
-                  <rect x="60.05" y="1225.62" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
-                </g>
-                <path id="s-moi-path" opacity="0.25" d="M-173.58-576.22S599.58,715.72,481.1,1399.53c-74.83,431.87-625.32,535.52-844.3,179.24" fill="none" stroke="#00c9a2" stroke-miterlimit="10" stroke-width="4"/>
 
-                <animateMotion id="s-moi-porgress" xlink:href="#s-moi-spacecraft" dur="0s" begin="0s" keyPoints="0.5; 0.5" keyTimes="0; 1" calcMode="spline" keySplines="0 0 1 1" fill="freeze" rotate="auto">
+                <animateMotion id="s-moi-porgress" xlink:href="#s-moi-spacecraft" dur="0s" begin="0s" keyPoints="0.5; 0.5" keyTimes="0; 1" calcMode="spline" keySplines="0 0 1 1" fill="freeze">
                   <mpath xlink:href="#s-moi-path"></mpath>
                 </animateMotion>
               </svg>
+
+              <div class="moiText moiText-1">
+                <h2>Getting into Martian orbit</h2>
+              </div>
+              <div class="moiText moiText-2">
+                <h3>Re-orient Spacecraft</h3>
+                <p>MOM is reoriented to align the thrust vector, before firing the engines, to reduce the velocity.</p>
+              </div>
+              <div class="moiText moiText-3">
+                <h3>Engine Firing</h3>
+                <div class="moiText_Ticker">
+                  <p class="moiText_TickerItem">The 440 N liquid Engine and 8 number of 22 N thrusters fire, imparting braking velocity of 1098.7 m/s.</p>
+                  <p class="moiText_TickerItem">Burn starts when MOM is speeding at 5.127 km/s relative to Mars at an altitude of 1847 km from Mars.</p>
+                  <p class="moiText_TickerItem">Nominally the burn ends in 24 minutes at an altitude of 973 km and a velocity of 4.316 km/s.</p>
+                  <p class="moiText_TickerItem">During the burn, the lowest altitude the spacecraft reaches is 462 km</p>
+                </div>
+              </div>
+              <div class="moiText moiText-4">
+                <h3>The communication blackout</h3>
+                <div class="moiText_Ticker">
+                  <p class="moiText_TickerItem">The radio link between MOM and Ground station gets blocked by Mars.</p>
+                  <p class="moiText_TickerItem">Thus about 20 minutes of the engine burn happens in this phase and all the operations are carried out autonomously.</p>
+                </div>
+              </div>
+              <div class="moiText moiText-5">
+                <h3>Rotating the Spacecraft</h3>
+                <p>The spacecraft is reoriented to point the Medium Gain Antenna towards Earth to communicate to the 70m Antenna of Deep Space Network.</p>
+              </div>
             </div>
-          <!-- </div> -->
         </div>
 
         <div class="Parallax_Preserve Scene Scene-6"></div>

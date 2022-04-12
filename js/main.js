@@ -1,5 +1,7 @@
 import { cubicBezier } from "./utils.js"
 
+const logEl = document.querySelector('.Log')
+
 const containerEl = document.querySelector('.Parallax')
 const scrollEl = document.querySelector('.Parallax_Scroll')
 
@@ -14,6 +16,9 @@ const s3Tower2Light = document.querySelector('#s-launch-tower2Light')
 
 const s5Bg = document.querySelector('.Parallax_Layer-moiBg')
 const s5Progress = document.querySelector('#s-moi-porgress')
+const s5Spacecraft = document.querySelector('#s-moi-spacecraft')
+const s5SpacecraftFire = document.querySelector('#s-moi-spacecraftFire')
+const s5Texts = document.querySelectorAll('.moiText')
 
 let containerWidth = 0
 let containerHeight = 0
@@ -200,7 +205,7 @@ function step(now) {
 
   // Scene 3
   const s3 = (sy + containerHeight - sceneRects[2].top) / (sceneRects[2].height + containerHeight)
-  if (0 <= s3 && s3 <= 1) {
+  if (s3 >= 0 && s3 <= 1) {
     s5Bg.style.setProperty('--t', -121)
     //                             Start Duration Scale down so it wont go above 1
     let rocketTranslation = ((s3 - 0.32) / 0.5) / 1.36
@@ -208,7 +213,7 @@ function step(now) {
     s3Rocket.style.setProperty('transform', `translateY(${-rocketTranslation}px)`)
 
     let standRotation = (s3 - 0.26) / 0.12
-    standRotation = cubicBezier(.5,0,.7,1, standRotation) * 7
+    standRotation = cubicBezier(.5,0,.6,1, standRotation) * 7
     s3Stand1.style.setProperty('transform', `rotate(${-standRotation}deg)`)
     s3Stand2.style.setProperty('transform', `rotate(${standRotation}deg)`)
 
@@ -219,16 +224,30 @@ function step(now) {
 
     // Scene 5
     const s5 = (sy + containerHeight - sceneRects[4].top) / (sceneRects[4].height + containerHeight)
-    if (0 <= s5 && s5 <= 1) {
+    if (s5 >= 0 && s5 <= 1) {
       s5Bg.style.setProperty('--t', -119)
-      // console.log(s5)
-      // let progress = (sy + containerHeight * 1.3 - sceneRects[4].top) / ((sceneRects[4].height + containerHeight) * 1.1)
-      let progress = s5
-      console.log(progress)
-      // console.log((sy + containerHeight * -0.5 - sceneRects[4].top))
-      progress = cubicBezier(0,0,1,1, progress)
-      s5Progress.setAttribute('keyPoints', `${progress}; ${progress}`)
+      const p = (s5 + 0.1) / 1.15
+      // p = cubicBezier(0,0,1,1, p)
+      // logEl.innerText = p
+      s5Progress.setAttribute('keyPoints', `${p}; ${p}`)
       s5Progress.beginElement()
+
+      s5Spacecraft.style.setProperty('transform', `rotate(${
+        -115 +
+        cubicBezier(.2,0,.5,1, (p - 0.175) / 0.35) *  195 +
+        cubicBezier(.2,0,.8,1, (p - 0.65) / 0.275) *  -80
+      }deg)`)
+
+      s5SpacecraftFire.style.setProperty('transform', `scale(${
+        cubicBezier(.1,0,.8,1, (p - 0.425) / 0.03) -
+        cubicBezier(.1,0,.8,1, (p - 0.65) / 0.05)
+      })`)
+
+      s5Texts[0].classList.toggle('moiText-active', p >= 0.1 && p <= 0.35)
+      s5Texts[1].classList.toggle('moiText-active', p >= 0.25 && p <= 0.5)
+      s5Texts[2].classList.toggle('moiText-active', p >= 0.35 && p <= 0.675)
+      s5Texts[3].classList.toggle('moiText-active', p >= 0.5 && p <= 0.75)
+      s5Texts[4].classList.toggle('moiText-active', p >= 0.675 && p <= 0.8)
     }
 
   requestAnimationFrame(step)
