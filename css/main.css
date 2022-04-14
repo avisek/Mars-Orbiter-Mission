@@ -286,13 +286,7 @@ h2 {
   min-height: 200vw;
 }
 
-.Svg-moiBg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-}
+.Svg-moiBg {}
 
 .Svg-moiFg {
   position: absolute;
