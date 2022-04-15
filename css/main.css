@@ -64,29 +64,6 @@ body {
   -webkit-transform: translateZ(calc(var(--t) * 1px)) scale(calc(1 + (var(--t) * -1) / var(--p)));
           transform: translateZ(calc(var(--t) * 1px)) scale(calc(1 + (var(--t) * -1) / var(--p)));
 }
-.Parallax_Portal {
-  --p: 120;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  -webkit-perspective: calc(var(--p) * 1px);
-          perspective: calc(var(--p) * 1px);
-  -webkit-perspective-origin-x: 100%;
-          perspective-origin-x: 100%;
-}
-.Parallax_PortalScroll {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  will-change: transform;
-}
 
 
 .Scene {
@@ -125,6 +102,10 @@ h2 {
 }
 
 /* Scene 1 */
+
+#s-mars-surface, #s-mars-shadow {
+  will-change: transform;
+}
 
 .Title, .SubTitle, .Lead, .Tip {
   position: absolute;
@@ -207,10 +188,10 @@ h2 {
 .Positioner-orbiter {
   left: 67vw;
   top: 66vh;
-  width:  calc((61vh + (100vmax - 100vh) * 0.3) * 2);
+  width:  calc(61vh + (100vmax - 100vh) * 0.3);
   height: calc(61vh + (100vmax - 100vh) * 0.3);
   transform: translate(-50%, -50%);
-  transform-origin: right;
+  transform-origin: 150%;
   animation: Positioner-orbiter 8s cubic-bezier(0, 0.2, 0, 1) forwards;
 }
 @keyframes Positioner-orbiter {

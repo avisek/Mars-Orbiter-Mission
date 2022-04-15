@@ -5,7 +5,10 @@ const logEl = document.querySelector('.Log')
 const containerEl = document.querySelector('.Parallax')
 const scrollEl = document.querySelector('.Parallax_Scroll')
 
-const s1MarsScroll = document.querySelectorAll('.Parallax_PortalScroll')[0]
+const s1Mars = document.querySelector('.Positioner-mars')
+let s1MarsWidth = 0
+const s1MarsSurface = document.querySelector('#s-mars-surface')
+const s1MarsShadow = document.querySelector('#s-mars-shadow')
 const s1Tip = document.querySelector('.Tip')
 
 const s3Rocket = document.querySelector('#s-launch-rocket')
@@ -47,6 +50,7 @@ function updateSceneRects() {
       height: s.offsetHeight
     }
   })
+  s1MarsWidth = s1Mars.offsetWidth
 }
 
 new ResizeObserver(() => {
@@ -199,7 +203,8 @@ function step(now) {
 
   // Scene 1
   if (sy < sceneRects[0].height) {
-    s1MarsScroll.style.setProperty('transform', `translateY(${-sy}px)`)
+    s1MarsSurface.style.setProperty('transform', `translateY(${-sy * 120/(120+240) * 640/s1MarsWidth}px)`)
+    s1MarsShadow.style.setProperty('transform', `translateY(${-sy * 120/(120+480) * 640/s1MarsWidth}px)`)
     s1Tip.style.setProperty('opacity', sy > sceneRects[0].height * 0.25 ? 0 : 1)
   }
 
