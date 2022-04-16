@@ -526,9 +526,6 @@
                     <g id="s-orbiter-spacecraftFire">
                       <path d="M62,26H58.45a4,4,0,1,0,0,4H62a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,70,26Z" fill="#fff"/>
                       <path d="M62,26H58.45a4,4,0,1,0,0,4H62a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,70,26Z" fill="none" stroke="#ffc521" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                      <animateTransform attributeName="transform" attributeType="XML" type="translate" values="52 28" fill="freeze"/>
-                      <animateTransform attributeName="transform" attributeType="XML" type="scale" keyTimes="0; 0.1; 0.15; 0.5; 0.55; 0.8; 0.9; 1" values="0; 0; 1; 1; 0.7; 0.7; 0; 0;" dur="8s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" fill="freeze" additive="sum"/>
-                      <animateTransform attributeName="transform" attributeType="XML" type="translate" values="-52 -28" fill="freeze" additive="sum"/>
                     </g>
                     <line x1="51" y1="5" x2="51" y2="17" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
                     <line x1="23" y1="5" x2="23" y2="17" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -546,12 +543,17 @@
                       <path d="M27,48h0A10,10,0,0,1,37,38h0A10,10,0,0,1,47,48H27Z" fill="none" stroke="#abddf7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 41"/>
                     </g>
                   </g>
-                  <animateMotion dur="50s" keyPoints="0; 0.5; 1" keyTimes="0; 0.5; 1" calcMode="spline" keySplines="0.35, 0.15, 0.65, 0.85; 0.35, 0.15, 0.65, 0.85" repeatCount="indefinite">
-                    <mpath xlink:href="#s-orbiter-orbit"/>
-                  </animateMotion>
-                  <animateTransform attributeName="transform" attributeType="XML" type="rotate" keyTimes="0; 0.2; 1" values="100; 120; 20" dur="18s" fill="freeze" calcMode="spline" keySplines="0.3, 1, 0.75, 1; 0.6, 0, 0.4, 1"/>
                 </g>
-                <path id="s-orbiter-orbit" opacity="0" d="M36.32,541.64c49.25,63,309.29-140.13,332.93-158.6S652.94,161.4,603.68,98.36,294.39,238.49,270.75,257-12.94,478.6,36.32,541.64" fill="none" stroke="#cf2f55" stroke-width="4"/>
+                <path id="s-orbiter-orbit" opacity="0.3" d="M36.32,541.64c49.25,63,309.29-140.13,332.93-158.6S652.94,161.4,603.68,98.36,294.39,238.49,270.75,257-12.94,478.6,36.32,541.64" fill="none" stroke="#cf2f55" stroke-width="4"/>
+
+                <animateMotion xlink:href="#s-orbiter-spacecraft" dur="50s" keyPoints="0; 0.5; 1" keyTimes="0; 0.5; 1" calcMode="spline" keySplines="0.35, 0.15, 0.65, 0.85; 0.35, 0.15, 0.65, 0.85" repeatCount="indefinite">
+                  <mpath xlink:href="#s-orbiter-orbit"/>
+                </animateMotion>
+                <animateTransform xlink:href="#s-orbiter-spacecraft" attributeName="transform" attributeType="XML" type="rotate" keyTimes="0; 0.2; 1" values="100; 120; 20" dur="18s" fill="freeze" calcMode="spline" keySplines="0.3, 1, 0.75, 1; 0.6, 0, 0.4, 1"/>
+
+                <animateTransform xlink:href="#s-orbiter-spacecraftFire" attributeName="transform" attributeType="XML" type="translate" values="52 28" fill="freeze"/>
+                <animateTransform xlink:href="#s-orbiter-spacecraftFire" attributeName="transform" attributeType="XML" type="scale" keyTimes="0; 0.1; 0.15; 0.5; 0.55; 0.8; 0.9; 1" values="0; 0; 1; 1; 0.7; 0.7; 0; 0;" dur="8s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1; 0.5 0 0.5 1" fill="freeze" additive="sum"/>
+                <animateTransform xlink:href="#s-orbiter-spacecraftFire" attributeName="transform" attributeType="XML" type="translate" values="-52 -28" fill="freeze" additive="sum"/>
               </svg>
             </div>
           </div>
