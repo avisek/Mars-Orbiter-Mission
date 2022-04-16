@@ -1,4 +1,4 @@
-import { cubicBezier } from "./utils.js"
+import { ResizeObserver, cubicBezier } from "./utils.js"
 
 const logEl = document.querySelector('.Log')
 
