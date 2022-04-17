@@ -103,7 +103,8 @@ h2 {
 
 /* Scene 1 */
 
-#s-mars-surface, #s-mars-shadow {
+#s-mars-surface > g, #s-mars-shadow,
+#s-orbiter-spacecraft {
   will-change: transform;
 }
 
@@ -233,7 +234,7 @@ h2 {
   transform: translate(-50%, -50%);
 }
 
-#s-launch-rocket, #s-launch-tower1Light, #s-launch-tower2Light, #s-launch-stand1, #s-launch-stand1 {
+#s-launch-rocket, #s-launch-tower1Light, #s-launch-tower2Light, #s-launch-stand1, #s-launch-stand2 {
   will-change: transform;
 }
 

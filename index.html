@@ -339,8 +339,8 @@
                   <clipPath id="s-mars-clip">
                     <circle cx="320" cy="320" r="200"/>
                     <!-- Chrome rendering bug fix -->
-                    <rect x="-1" y="-1" width="1" height="1"/>
-                    <rect x="640" y="640" width="1" height="1"/>
+                    <rect x="-2" y="-2" width="1" height="1"/>
+                    <rect x="641" y="641" width="1" height="1"/>
                   </clipPath>
                   <mask id="s-mars-shadowCutout">
                     <rect x="120" y="120" width="400" height="540" fill="white"/>
@@ -451,7 +451,9 @@
                       <animateTransform attributeName="transform" attributeType="XML" type="translate" from="0" to="-640" dur="25s" repeatCount="indefinite"/>
                     </g>
                   </g>
-                  <rect id="s-mars-shadow" x="120" y="120" width="400" height="540" mask="url(#s-mars-shadowCutout)" fill="#360043" opacity="0.4"/>
+                  <g id="s-mars-shadow">
+                    <rect x="120" y="120" width="400" height="540" mask="url(#s-mars-shadowCutout)" fill="#360043" opacity="0.4"/>
+                  </g>
                 </g>
               </svg>
             </div>
@@ -1540,8 +1542,8 @@
                     <circle cx="132" cy="1300" r="200" fill="#c53445"/>
                   </clipPath>
                   <mask id="s-moi-shadowCutout">
-                    <rect x="120" y="120" width="400" height="540" fill="white"/>
-                    <circle cx="280" cy="280" r="200" fill="black"/>
+                    <rect x="-68" y="1100" width="400" height="400" fill="white"/>
+                    <circle cx="-20" cy="1300" r="250" fill="black"/>
                   </mask>
                 </defs>
                 <g id="s-moi-mars">
@@ -1601,14 +1603,14 @@
                       </g>
                       <animateTransform attributeName="transform" attributeType="XML" type="translate" from="0" to="-800" dur="25s" repeatCount="indefinite"/>
                     </g>
-                    <rect id="s-mars-shadow" x="120" y="120" width="400" height="540" mask="url(#s-mars-shadowCutout)" fill="#360043" opacity="0.4"/>
+                    <rect id="s-moi-shadow" x="-68" y="1100" width="400" height="400" mask="url(#s-moi-shadowCutout)" fill="#360043" opacity="0.4"/>
                   </g>
                 </g>
 
                 <path id="s-moi-path" opacity="0" d="M-173.58-576.22S599.58,715.72,481.1,1399.53c-74.83,431.87-625.32,535.52-844.3,179.24" fill="none" stroke="#00c9a2" stroke-width="4"/>
 
                 <path id="s-moi-pathTowardsMars" opacity="0.35" d="M-173.58-576.22S528.79,597.44,492.05,1299.55" fill="none" stroke="#00c9a2" stroke-width="4"/>
-                <path id="s-moi-pathTargetOrbit" d="M-335.6,1000.92c224-358,827.65-204,827.65,298.63,0,504.37-608.67,655.65-827.65,299.37" fill="none" stroke0="#80224a" stroke="#662843" stroke-width="4"/>
+                <path id="s-moi-pathTargetOrbit" d="M-335.6,1000.92c224-358,827.65-204,827.65,298.63,0,504.37-608.67,655.65-827.65,299.37" fill="none" stroke="#4e203f" stroke-width="4"/>
 
                 <!-- <text fill="#fff" opacity="0.6" text-anchor="middle" style="font-size: calc(0.8rem + (100vh - 100vmin) * 0.04); font-weight: 300;">
                   <textPath href="#s-moi-pathTowardsMars" startOffset="960">Towards Mars</textPath>
