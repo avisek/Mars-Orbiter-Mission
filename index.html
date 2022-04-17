@@ -29,10 +29,10 @@
                   <circle r="2"/>
                 </g>
 
-                <use id="s-bg-circleSmViolet" xlink:href="#s-bg-circle" fill="#3c316d" transform="scale(0.805)"/>
-                <use id="s-bg-circleSmBlue" xlink:href="#s-bg-circle" fill="#735681" transform="scale(0.35)"/>
-                <use id="s-bg-circleSmCyan" xlink:href="#s-bg-circle" fill="#4e5eb7" transform="scale(0.35)"/>
-                <use id="s-bg-circleSmWhite" xlink:href="#s-bg-circle" fill="#5d8aac" transform="scale(0.35)"/>
+                <use id="s-bg-circleSmViolet" xlink:href="#s-bg-circle" fill="#3c316d" transform="scale(0.75)"/>
+                <use id="s-bg-circleSmBlue" xlink:href="#s-bg-circle" fill="#735681" transform="scale(0.5)"/>
+                <use id="s-bg-circleSmCyan" xlink:href="#s-bg-circle" fill="#4e5eb7" transform="scale(0.5)"/>
+                <use id="s-bg-circleSmWhite" xlink:href="#s-bg-circle" fill="#5d8aac" transform="scale(0.5)"/>
                 <use id="s-bg-circleMdViolet" xlink:href="#s-bg-circle" fill="#3c316d" transform="scale(1.25)"/>
                 <use id="s-bg-circleMdBlue" xlink:href="#s-bg-circle" fill="#735681"/>
                 <use id="s-bg-circleMdCyan" xlink:href="#s-bg-circle" fill="#4e5eb7"/>
@@ -486,7 +486,7 @@
                       <line x1="35" y1="26" x2="43" y2="26" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
                       <line x1="41" y1="32" x2="43" y2="32" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
                       <line x1="38" y1="34" x2="43" y2="34" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-                      <g opacity="0.92">
+                      <g>
                         <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="#8472e8"/>
                         <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round"/>
                         <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="none" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 7 8 100"/>
@@ -1536,95 +1536,160 @@
             <div class="Parallax_Layer Parallax_Layer-moiFg" style="--t: -1;">
               <svg class="Svg Svg-moiFg" viewBox="0 0 1000 2000" overflow="visible" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
-                  <clipPath id="s-moi-clip-1">
-                    <rect x="28" width="12" height="12" rx="2" transform="translate(28 40) rotate(-90)" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
+                  <clipPath id="s-moi-marsClip">
+                    <circle cx="132" cy="1300" r="200" fill="#c53445"/>
                   </clipPath>
-                  <clipPath id="s-moi-clip-2">
-                    <rect x="14" width="12" height="12" rx="2" transform="translate(14 26) rotate(-90)" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  </clipPath>
-                  <clipPath id="s-moi-clip-3">
-                    <rect width="12" height="12" rx="2" transform="translate(0 12) rotate(-90)" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  </clipPath>
+                  <mask id="s-moi-shadowCutout">
+                    <rect x="120" y="120" width="400" height="540" fill="white"/>
+                    <circle cx="280" cy="280" r="200" fill="black"/>
+                  </mask>
                 </defs>
                 <g id="s-moi-mars">
-                  <circle cx="132" cy="1317.69" r="200" fill="#c53445"/>
-                  <rect x="139.18" y="1300.58" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
-                  <rect x="29.4" y="1365.34" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
-                  <rect x="60.05" y="1225.62" width="109.78" height="34.22" rx="17.11" fill="#942753"/>
+                  <circle cx="132" cy="1300" r="320" fill="#855ba9" opacity="0.06">
+                    <animate attributeName="r" values="320; 300; 320" dur="5s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="132" cy="1300" r="260" fill="#855ba9" opacity="0.08">
+                    <animate attributeName="r" values="255; 245; 255" dur="5s" begin="-1.25s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="132" cy="1300" r="210" fill="#855ba9" opacity="0.14"/>
+                  <circle cx="132" cy="1300" r="200" fill="#c53445"/>
+                  <g clip-path="url(#s-moi-marsClip)">
+                    <g opacity="0.35">
+                      <g fill="#000052">
+                        <path d="M114.36,1132a14,14,0,0,1-14,14H90.18a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H222.55a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H156.36a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H52a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h48.36a14,14,0,0,1,14,14Z"/>
+                        <path d="M109.27,1258a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h78.91a14,14,0,0,0,14-14h0a14,14,0,0,1,14-14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H246.73a14,14,0,0,1-14-14h0a14,14,0,0,0-14-14H129.64a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h29.27a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14Z"/>
+                        <path d="M58.36,1328a14,14,0,0,0,14,14H97.82a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14H91.45a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h40.73a14,14,0,0,1,14,14h0a14,14,0,0,0,14,14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H193.27a14,14,0,0,1-14-14h0a14,14,0,0,0-14-14h-5.09a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h30.55a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H72.36a14,14,0,0,0-14,14Z"/>
+                        <path d="M13.09,1482a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H130.18a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H79.27a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14H89.45a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H-27.64a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H23.27a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14Z"/>
+                        <path d="M615.82,1440a14,14,0,0,0-14-14H525.45a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h17.82a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14H502.55a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h78.9a14,14,0,0,0,14-14h0a14,14,0,0,1,14-14h42a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H629.82a14,14,0,0,1-14-14Z"/>
+                        <path d="M479.64,1370a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H598a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H567.45a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h5.1a14,14,0,0,0,14-14h0a14,14,0,0,1,14-14h22.9a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14h-56a14,14,0,0,0-14,14h0a14,14,0,0,1-14,14H498.73a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h6.36a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14Z"/>
+                        <path d="M394.36,1216a14,14,0,0,0,14,14h10.19a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14H367.64a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H484.73a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H474.55a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h50.9a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H408.36a14,14,0,0,0-14,14Z"/>
+                        <path d="M913.91,1132a14,14,0,0,1-14,14H889.73a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h132.36a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H955.91a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H851.55a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h48.36a14,14,0,0,1,14,14Z"/>
+                        <path d="M908.82,1258a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h78.91a14,14,0,0,0,14-14h0a14,14,0,0,1,14-14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14h-25.46a14,14,0,0,1-14-14h0a14,14,0,0,0-14-14H929.18a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h29.27a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14Z"/>
+                        <path d="M857.91,1328a14,14,0,0,0,14,14h25.45a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14H891a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h40.73a14,14,0,0,1,14,14h0a14,14,0,0,0,14,14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H992.82a14,14,0,0,1-14-14h0a14,14,0,0,0-14-14h-5.09a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h30.54a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H871.91a14,14,0,0,0-14,14Z"/>
+                        <path d="M757.91,1440a14,14,0,0,0,14,14h50.91a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14H812.64a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H929.73a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H878.82a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14H889a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H771.91a14,14,0,0,0-14,14Z"/>
+                      </g>
+                      <g fill="#000052">
+                        <rect x="-116" y="1202" width="95.45" height="28" rx="14"/>
+                        <rect x="-61.27" y="1370" width="86.55" height="28" rx="14"/>
+                        <rect x="570" y="1146" width="111.73" height="28" rx="14"/>
+                        <rect x="381.18" y="1146" width="76.36" height="28" rx="14"/>
+                        <rect x="591.64" y="1230" width="70" height="28" rx="14"/>
+                        <rect x="236.55" y="1286" width="94.18" height="28" rx="14"/>
+                        <rect x="335.82" y="1342" width="87.82" height="28" rx="14"/>
+                        <rect x="375.27" y="1426" width="82.73" height="28" rx="14"/>
+                        <rect x="169.09" y="1454" width="50.91" height="28" rx="14"/>
+                        <rect x="263.27" y="1454" width="86.55" height="28" rx="14"/>
+                        <rect x="654.27" y="1090" width="76.36" height="28" rx="14"/>
+                        <rect x="683.55" y="1202" width="95.45" height="28" rx="14"/>
+                        <rect x="645.36" y="1314" width="84" height="28" rx="14"/>
+                        <rect x="738.27" y="1370" width="86.55" height="28" rx="14"/>
+                        <rect x="1036.09" y="1286" width="94.18" height="28" rx="14"/>
+                        <rect x="968.64" y="1454" width="50.91" height="28" rx="14"/>
+                        <rect x="1062.82" y="1454" width="86.55" height="28" rx="14"/>
+                      </g>
+                      <g fill="#ffffad">
+                        <rect x="-42.18" y="1146" width="76.36" height="28" rx="14"/>
+                        <rect x="-32" y="1258" width="82.73" height="28" rx="14"/>
+                        <rect x="267.27" y="1174" width="71.27" height="28" rx="14"/>
+                        <rect x="445.27" y="1090" width="76.36" height="28" rx="14"/>
+                        <rect x="260.73" y="1370" width="50.91" height="28" rx="14"/>
+                        <rect x="757.36" y="1146" width="76.36" height="28" rx="14"/>
+                        <rect x="767.55" y="1258" width="82.73" height="28" rx="14"/>
+                        <rect x="675.64" y="1426" width="49.64" height="28" rx="14"/>
+                        <rect x="1066.82" y="1174" width="71.27" height="28" rx="14"/>
+                        <rect x="1060.27" y="1370" width="50.91" height="28" rx="14"/>
+                      </g>
+                      <animateTransform attributeName="transform" attributeType="XML" type="translate" from="0" to="-800" dur="25s" repeatCount="indefinite"/>
+                    </g>
+                    <rect id="s-mars-shadow" x="120" y="120" width="400" height="540" mask="url(#s-mars-shadowCutout)" fill="#360043" opacity="0.4"/>
+                  </g>
                 </g>
-                <path id="s-moi-path" opacity="0.25" d="M-173.58-576.22S599.58,715.72,481.1,1399.53c-74.83,431.87-625.32,535.52-844.3,179.24" fill="none" stroke="#00c9a2" stroke-miterlimit="10" stroke-width="4"/>
-                <g id="s-moi-spacecraft"><g transform="scale(2.5) translate(-23 -23)">
-                  <line x1="30" y1="19" x2="30" y2="27" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-                  <line x1="20" y1="35" x2="20" y2="30" fill="#1ae8d1" stroke="#17ccc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <rect x="12" y="14" width="16" height="18" transform="translate(-3 43) rotate(-90)" fill="#715fd1"/>
-                  <rect x="18.5" y="20.5" width="3" height="18" transform="translate(-9.5 49.5) rotate(-90)" fill="#593e9c"/>
-                  <rect x="17" y="13" width="8" height="14" rx="1" transform="translate(1 41) rotate(-90)" fill="#8a9ee6"/>
-                  <line x1="18" y1="17" x2="22" y2="17" fill="none" stroke="#361870" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="24" y1="19" x2="26" y2="19" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
-                  <line x1="18" y1="21" x2="26" y2="21" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
-                  <line x1="24" y1="27" x2="26" y2="27" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-                  <line x1="21" y1="29" x2="26" y2="29" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-                  <line x1="20" y1="17.5" x2="20" y2="12" fill="#1ae8d1" stroke="#17ccc9" stroke-miterlimit="10" stroke-width="2"/>
-                  <line x1="12" y1="6" x2="14" y2="6" fill="#1ae8d1" stroke="#17ccc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <line x1="26" y1="6" x2="28" y2="6" fill="#1ae8d1" stroke="#17ccc9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <g>
-                    <rect x="28" width="12" height="12" rx="2" transform="translate(28 40) rotate(-90)" fill="#17ccc9"/>
-                    <g clip-path="url(#s-moi-clip-1)">
-                      <rect x="19" y="5" width="20" height="2" transform="translate(4.25 22.26) rotate(-45)" fill="#bdfffa"/>
-                      <rect x="26" y="4" width="20" height="4" transform="translate(6.3 27.21) rotate(-45)" fill="#bdfffa"/>
+
+                <path id="s-moi-path" opacity="0" d="M-173.58-576.22S599.58,715.72,481.1,1399.53c-74.83,431.87-625.32,535.52-844.3,179.24" fill="none" stroke="#00c9a2" stroke-width="4"/>
+
+                <path id="s-moi-pathTowardsMars" opacity="0.35" d="M-173.58-576.22S528.79,597.44,492.05,1299.55" fill="none" stroke="#00c9a2" stroke-width="4"/>
+                <path id="s-moi-pathTargetOrbit" d="M-335.6,1000.92c224-358,827.65-204,827.65,298.63,0,504.37-608.67,655.65-827.65,299.37" fill="none" stroke0="#80224a" stroke="#662843" stroke-width="4"/>
+
+                <!-- <text fill="#fff" opacity="0.6" text-anchor="middle" style="font-size: calc(0.8rem + (100vh - 100vmin) * 0.04); font-weight: 300;">
+                  <textPath href="#s-moi-pathTowardsMars" startOffset="960">Towards Mars</textPath>
+                  <textPath href="#s-moi-pathTargetOrbit" startOffset="680">Target Orbit</textPath>
+                </text> -->
+
+                <g id="s-moi-spacecraft">
+                  <g transform="scale(2) translate(-37 -28)">
+                    <g id="s-moi-spacecraftFire" transform-origin="52 28">
+                      <path d="M62,26H58.45a4,4,0,1,0,0,4H62a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,70,26Z" fill="#fff"/>
+                      <path d="M62,26H58.45a4,4,0,1,0,0,4H62a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,70,26Z" fill="none" stroke="#ffc521" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
                     </g>
-                    <rect x="28" width="12" height="12" rx="2" transform="translate(28 40) rotate(-90)" fill="none" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <g>
-                    <rect x="14" width="12" height="12" rx="2" transform="translate(14 26) rotate(-90)" fill="#17ccc9"/>
-                    <g clip-path="url(#s-moi-clip-2)">
-                      <rect x="5" y="5" width="20" height="2" transform="translate(0.15 12.36) rotate(-45)" fill="#bdfffa"/>
-                      <rect x="12" y="4" width="20" height="4" transform="translate(2.2 17.31) rotate(-45)" fill="#bdfffa"/>
+                    <g>
+                      <line x1="37" y1="38" x2="37" y2="35" fill="#1ae8d1" stroke="#17ccc9" stroke-miterlimit="10" stroke-width="2"/>
+                      <polygon points="37 52 37.5 48 36.5 48 37 52" fill="#67a7dc" stroke="#593e9c" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="37" cy="52" r="0.5" fill="#abddf7" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round"/>
+                      <g>
+                        <path d="M27,48h0A10,10,0,0,1,37,38h0A10,10,0,0,1,47,48H27Z" fill="#715fd1"/>
+                        <path d="M27,48h0A10,10,0,0,1,37,38h0A10,10,0,0,1,47,48H27Z" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M27,48h0A10,10,0,0,1,37,38h0A10,10,0,0,1,47,48H27Z" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 30 24"/>
+                        <path d="M27,48h0A10,10,0,0,1,37,38h0A10,10,0,0,1,47,48H27Z" fill="none" stroke="#abddf7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 38"/>
+                      </g>
                     </g>
-                    <rect x="14" width="12" height="12" rx="2" transform="translate(14 26) rotate(-90)" fill="none" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                  <g>
-                    <rect width="12" height="12" rx="2" transform="translate(0 12) rotate(-90)" fill="#17ccc9"/>
-                    <g clip-path="url(#s-moi-clip-3)">
-                      <rect x="-9" y="5" width="20" height="2" transform="translate(-3.95 2.46) rotate(-45)" fill="#bdfffa"/>
-                      <rect x="-2" y="4" width="20" height="4" transform="translate(-1.9 7.41) rotate(-45)" fill="#bdfffa"/>
+                    <g>
+                      <line x1="47" y1="24" x2="47" y2="32" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
+                      <rect x="29" y="19" width="16" height="18" transform="translate(9 65) rotate(-90)" fill="#715fd1"/>
+                      <rect x="35.5" y="25.5" width="3" height="18" transform="translate(2.5 71.5) rotate(-90)" fill="#593e9c"/>
+                      <rect x="34" y="18" width="8" height="14" rx="1" transform="translate(13 63) rotate(-90)" fill="#8a9ee6"/>
+                      <line x1="35" y1="22" x2="39" y2="22" fill="none" stroke="#361870" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="41" y1="24" x2="43" y2="24" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+                      <line x1="35" y1="26" x2="43" y2="26" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+                      <line x1="41" y1="32" x2="43" y2="32" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                      <line x1="38" y1="34" x2="43" y2="34" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                      <g>
+                        <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="#8472e8"/>
+                        <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="none" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 7 8 100"/>
+                        <polygon points="26 32.5 19.5 30 19.5 25.5 26 23 26 32.5" fill="none" stroke="#abddf7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 10 5 100"/>
+                      </g>
+                      <line x1="27" y1="22" x2="27" y2="34" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+                      <line x1="25.5" y1="22" x2="25.5" y2="28" fill="none" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round"/>
+                      <line x1="46" y1="20" x2="46" y2="36" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="46" y1="20" x2="46" y2="26" fill="none" stroke="#9b81f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="28" y1="20" x2="28" y2="36" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="28" y1="20" x2="28" y2="26" fill="none" stroke="#9b81f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="51" y1="27" x2="51" y2="29" fill="none" stroke="#361870" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="51" y1="27" x2="51" y2="28" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="50" y1="25.5" x2="50" y2="30.5" fill="none" stroke="#361870" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <line x1="50" y1="25.5" x2="50" y2="29.25" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                     </g>
-                    <rect width="12" height="12" rx="2" transform="translate(0 12) rotate(-90)" fill="none" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g>
+                      <line x1="37" y1="22.5" x2="37" y2="17" fill="#1ae8d1" stroke="#17ccc9" stroke-miterlimit="10" stroke-width="2"/>
+                      <line x1="29" y1="11" x2="31" y2="11" fill="#1ae8d1" stroke="#17ccc9" stroke-miterlimit="10" stroke-width="2"/>
+                      <line x1="43" y1="11" x2="45" y2="11" fill="#1ae8d1" stroke="#17ccc9" stroke-miterlimit="10" stroke-width="2"/>
+                      <g>
+                        <rect x="17" y="5" width="12" height="12" rx="2" transform="translate(12 34) rotate(-90)" fill="#17ccc9"/>
+                        <polygon points="17 10.59 17 13.41 25.41 5 22.59 5 17 10.59" fill="#bdfffa"/>
+                        <path d="M29,9.83V6l-.91-.91-11,11L18,17h3.83Z" fill="#bdfffa"/>
+                        <line x1="17" y1="11" x2="29" y2="11" fill="#17ccc9" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                        <line x1="23" y1="5" x2="23" y2="17" fill="#17ccc9" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                        <rect x="17" y="5" width="12" height="12" rx="2" transform="translate(12 34) rotate(-90)" fill="none" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                      </g>
+                      <g>
+                        <rect x="31" y="5" width="12" height="12" rx="2" transform="translate(26 48) rotate(-90)" fill="#17ccc9"/>
+                        <polygon points="31 10.59 31 13.41 39.41 5 36.59 5 31 10.59" fill="#bdfffa"/>
+                        <path d="M43,9.83V6l-.91-.91-11,11L32,17h3.83Z" fill="#bdfffa"/>
+                        <line x1="31" y1="11" x2="43" y2="11" fill="#17ccc9" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                        <line x1="37" y1="5" x2="37" y2="17" fill="#17ccc9" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                        <rect x="31" y="5" width="12" height="12" rx="2" transform="translate(26 48) rotate(-90)" fill="none" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                      </g>
+                      <g>
+                        <rect x="45" y="5" width="12" height="12" rx="2" transform="translate(40 62) rotate(-90)" fill="#17ccc9"/>
+                        <polygon points="45 10.59 45 13.41 53.41 5 50.59 5 45 10.59" fill="#bdfffa"/>
+                        <path d="M57,9.83V6l-.91-.91-11,11L46,17h3.83Z" fill="#bdfffa"/>
+                        <line x1="45" y1="11" x2="57" y2="11" fill="#17ccc9" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                        <line x1="51" y1="5" x2="51" y2="17" fill="#17ccc9" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                        <rect x="45" y="5" width="12" height="12" rx="2" transform="translate(40 62) rotate(-90)" fill="none" stroke="#1ae8d1" stroke-miterlimit="10"/>
+                      </g>
+                    </g>
                   </g>
-                  <polygon points="20 47 20.5 43 19.5 43 20 47" fill="#67a7dc" stroke="#593e9c" stroke-linecap="round" stroke-linejoin="round"/>
-                  <circle cx="20" cy="47" r="0.5" fill="#abddf7" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="29" y1="15" x2="29" y2="31" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <g>
-                    <polygon points="9 26.75 3 24.75 3 20.75 9 18.75 9 26.75" fill="#8472e8"/>
-                    <polygon points="9 26.75 3 24.75 3 20.75 9 18.75 9 26.75" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                    <polygon points="9 26.75 3 24.75 3 20.75 9 18.75 9 26.75" fill="none" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="0 4 8 100"/>
-                    <polygon points="9 26.75 3 24.75 3 20.75 9 18.75 9 26.75" fill="none" stroke="#abddf7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-dasharray="0 7 5 100"/>
-                  </g>
-                  <line x1="10" y1="17" x2="10" y2="29" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
-                  <line x1="9" y1="17" x2="9" y2="23" fill="none" stroke="#82c2f0" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="11" y1="15" x2="11" y2="31" fill="none" stroke="#8472e8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <line x1="11" y1="15" x2="11" y2="21" fill="none" stroke="#9b81f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <line x1="20" x2="20" y2="12" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <g id="s-moi-spacecraftFire" transform-origin="38 23">
-                    <path d="M45,21H41.45a4,4,0,1,0,0,4H45a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,53,21Z" fill="#fff"/>
-                    <path d="M45,21H41.45a4,4,0,1,0,0,4H45a2,2,0,0,0,0-4Zm8,0a2,2,0,1,0,2,2A2,2,0,0,0,53,21Z" fill="none" stroke="#ffc521" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                  </g>
-                  <line x1="34" x2="34" y2="12" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="6" x2="6" y2="12" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line y1="6" x2="12" y2="6" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="14" y1="6" x2="26" y2="6" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="28" y1="6" x2="40" y2="6" fill="#17ccc9" stroke="#1ae8d1" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="34" y1="22" x2="34" y2="24" fill="none" stroke="#361870" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <line x1="34" y1="22" x2="34" y2="23" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <line x1="33" y1="20.5" x2="33" y2="25.5" fill="none" stroke="#361870" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <line x1="33" y1="20.5" x2="33" y2="24.25" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                  <g>
-                    <path d="M10,43h0A10,10,0,0,1,20,33h0A10,10,0,0,1,30,43H10Z" fill="#715fd1"/>
-                    <path d="M10,43h0A10,10,0,0,1,20,33h0A10,10,0,0,1,30,43H10Z" fill="none" stroke="#715fd1" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10,43h0A10,10,0,0,1,20,33h0A10,10,0,0,1,30,43H10Z" fill="none" stroke="#4a2b94" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0 28 24"/>
-                    <path d="M10,43h0A10,10,0,0,1,20,33h0A10,10,0,0,1,30,43H10Z" fill="none" stroke="#abddf7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 41"/>
-                  </g>
-                </g></g>
+                </g>
 
                 <animateMotion id="s-moi-porgress" xlink:href="#s-moi-spacecraft" dur="0s" begin="0s" keyPoints="0.5; 0.5" keyTimes="0; 1" calcMode="spline" keySplines="0 0 1 1" fill="freeze">
                   <mpath xlink:href="#s-moi-path"/>
