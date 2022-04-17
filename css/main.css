@@ -410,7 +410,70 @@ h2 {
 
 /* Scene 6 */
 .Scene-6 {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
   background: #000328;
+}
+
+.CreditHead {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  transform: translateY(0.72rem);
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.5s;
+}
+.Scene-6.active .CreditHead {
+  opacity: 1;
+  transition-duration: 1s, 0.5s;
+}
+
+.CreditBody {
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-align: center;
+  transform: translateY(0.72rem);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.5s;
+}
+.Scene-6.active .CreditBody {
+  transition-duration: 1s, 0.5s;
+}
+.CreditHead:hover + .CreditBody, .CreditBody:hover {
+  transition-duration: 0.5s, 0.5s;
+}
+
+.CreditExpand:checked ~ .CreditHead {
+  transform: translateY(0);
+}
+.Scene-6.active .CreditExpand:checked ~ .CreditBody {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.CreditHead label {
+  position: relative;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+.Icon-heart {
+  width: 0.85em;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  overflow: visible;
+  transition: fill 1s, stroke 0.5s;
+}
+.CreditHead label:hover .Icon-heart, .CreditExpand:checked ~ .CreditHead .Icon-heart {
+  fill: #ff4054;
+  stroke: #ff4054;
 }
 
 
