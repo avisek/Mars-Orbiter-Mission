@@ -23,7 +23,7 @@ const s5Spacecraft = document.querySelector('#s-moi-spacecraft')
 const s5SpacecraftFire = document.querySelector('#s-moi-spacecraftFire')
 const s5Texts = document.querySelectorAll('.moiText')
 
-const s6Container = document.querySelector('.Scene-6')
+const s6Credit = document.querySelector('.Credit')
 
 let containerWidth = 0
 let containerHeight = 0
@@ -255,9 +255,9 @@ function step(now) {
       s5Texts[2].classList.toggle('moiText-active', p >= 0.35 && p <= 0.675)
       s5Texts[3].classList.toggle('moiText-active', p >= 0.5 && p <= 0.75)
       s5Texts[4].classList.toggle('moiText-active', p >= 0.675 && p <= 0.8)
-
-      s6Container.classList.toggle('active', s5 > 0.999)
     }
+
+    s6Credit.classList.toggle('Credit-active', sy > sceneRects[5].top - sceneRects[5].height * 0.01)
 
   requestAnimationFrame(step)
 }
