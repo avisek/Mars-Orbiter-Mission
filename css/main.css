@@ -226,12 +226,14 @@ h2 {
   height: 150vh;
 }
 
-.Svg-launchBg {
+.Svg-launch {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: calc(100% + (100vmax - 100vw) * 1.6);
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #s-launch-rocket, #s-launch-tower1Light, #s-launch-tower2Light, #s-launch-stand1, #s-launch-stand2 {
@@ -242,17 +244,24 @@ h2 {
   transition: transform 0.3s;
 }
 #s-launch-tower1Light {
-  transform-origin: 252px 711px;
+  transform-origin: 252px 461px;
 }
 #s-launch-tower2Light {
-  transform-origin: 756px 711px;
+  transform-origin: 756px 461px;
 }
 
 #s-launch-stand1 {
-  transform-origin: 440px 960px;
+  transform-origin: 440px 710px;
 }
 #s-launch-stand2 {
-  transform-origin: 548px 960px;
+  transform-origin: 548px 710px;
+}
+
+.RocketSmoke {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 

@@ -1,4 +1,4 @@
-import { ResizeObserver, cubicBezier } from "./utils.js"
+import { cubicBezier } from "./utils.js"
 
 const logEl = document.querySelector('.Log')
 
@@ -16,6 +16,8 @@ const s3Stand1 = document.querySelector('#s-launch-stand1')
 const s3Stand2 = document.querySelector('#s-launch-stand2')
 const s3Tower1Light = document.querySelector('#s-launch-tower1Light')
 const s3Tower2Light = document.querySelector('#s-launch-tower2Light')
+const s3Svg = document.querySelector('.Svg-launch')
+const s3Ground = document.querySelector('#s-launch-ground')
 
 const s5Bg = document.querySelector('.Parallax_Layer-moiBg')
 const s5Progress = document.querySelector('#s-moi-porgress')
@@ -24,6 +26,14 @@ const s5SpacecraftFire = document.querySelector('#s-moi-spacecraftFire')
 const s5Texts = document.querySelectorAll('.moiText')
 
 const s6Credit = document.querySelector('.Credit')
+
+const smokeCanvas = document.querySelector('.RocketSmoke')
+const ctx = smokeCanvas.getContext("2d")
+let smokeCanvasWidth = 0
+let smokeCanvasHeight = 0
+let smokeScale = 1
+let smokeY = 0
+let svgHeight = 0
 
 let containerWidth = 0
 let containerHeight = 0
@@ -45,25 +55,42 @@ let lastTime = 0
 
 const sceneEls = document.querySelectorAll('.Scene')
 const sceneRects = []
-function updateSceneRects() {
+
+function onResize() {
+  containerWidth = containerEl.offsetWidth
+  containerHeight = containerEl.offsetHeight
+
+  scrollWidth = scrollEl.offsetWidth
+  scrollHeight = scrollEl.offsetHeight
+
   sceneEls.forEach((s, i) => {
     sceneRects[i] = {
       top: s.offsetTop,
       height: s.offsetHeight
     }
   })
+
   s1MarsWidth = s1Mars.offsetWidth
+
+  const svgRect = s3Svg.getBoundingClientRect()
+
+  smokeCanvas.style.setProperty('height', `${
+    s3Ground.getBoundingClientRect().top - svgRect.top
+  }px`)
+
+  const canvasRect = smokeCanvas.getBoundingClientRect()
+
+  smokeCanvasWidth = Math.round(canvasRect.width * window.devicePixelRatio)
+  smokeCanvasHeight = Math.round(canvasRect.height * window.devicePixelRatio)
+
+  smokeCanvas.width = smokeCanvasWidth
+  smokeCanvas.height = smokeCanvasHeight
+
+  svgHeight = Math.round(svgRect.height * window.devicePixelRatio)
+  smokeScale = Math.max(smokeCanvasWidth, svgHeight) / 1000
 }
 
-new ResizeObserver(() => {
-  containerWidth = containerEl.offsetWidth
-  containerHeight = containerEl.offsetHeight
-  updateSceneRects()
-}).observe(containerEl)
-new ResizeObserver(() => {
-  scrollWidth = scrollEl.offsetWidth
-  scrollHeight = scrollEl.offsetHeight
-}).observe(scrollEl)
+window.addEventListener('resize', onResize)
 
 containerEl.addEventListener('touchstart', e => {
   const t = e.changedTouches[0]
@@ -218,6 +245,7 @@ function step(now) {
     let rocketTranslation = ((s3 - 0.32) / 0.5) / 1.36
     rocketTranslation = cubicBezier(.25,0,.5,.1, rocketTranslation) * (sceneRects[2].height / 2) * 1.36
     s3Rocket.style.setProperty('transform', `translateY(${-rocketTranslation}px)`)
+    smokeY = -rocketTranslation
 
     let standRotation = (s3 - 0.26) / 0.12
     standRotation = cubicBezier(.5,0,.6,1, standRotation) * 7
@@ -262,11 +290,7 @@ function step(now) {
   requestAnimationFrame(step)
 }
 
-containerWidth = containerEl.offsetWidth
-containerHeight = containerEl.offsetHeight
-updateSceneRects()
-scrollWidth = scrollEl.offsetWidth
-scrollHeight = scrollEl.offsetHeight
+onResize()
 lastTime = performance.now()
 requestAnimationFrame(step)
 
@@ -275,3 +299,136 @@ document.addEventListener('click', () => {
     document.documentElement.requestFullscreen()
   }
 })
+
+
+
+function random(min, max) {
+  return min + Math.random() * (max - min)
+}
+
+const MAX_PARTICLES = Infinity // 280
+const COLOURS = ['#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423']
+
+const particles = []
+const pool = []
+
+class Particle {
+  constructor(x, y, radius) {
+    this.init(x, y, radius)
+  }
+
+  init(x, y, radius) {
+    this.alive = true
+
+    this.radius = radius || 10
+    this.wander = 0.15
+    this.theta = random(0, 2 * Math.PI)
+    this.drag = 0.92
+    this.color = '#fff'
+
+    this.x = x || 0.0
+    this.y = y || 0.0
+
+    this.vx = 0.0
+    this.vy = 0.0
+  }
+
+  move() {
+    this.x += this.vx
+    this.y += this.vy
+
+    this.vx *= this.drag
+    this.vy *= this.drag
+
+    this.theta += random(-0.5, 0.5) * this.wander
+    this.vx += Math.sin(this.theta) * 0.01
+    this.vy += Math.cos(this.theta) * 0.01
+
+    // this.radius *= 1.02 /* 0.96 */
+    this.radius += 0.5
+    // if (this.y < 740 + smokeY) this.radius += 1
+    this.alive = this.radius < 60
+  }
+
+  draw(ctx) {
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI)
+    // ctx.fillStyle = this.color
+    ctx.fillStyle = `hsla(0deg, 0%, 100%, ${1 - (this.radius - 20) / 40})`
+    ctx.fill()
+  }
+}
+
+
+function init() {
+  let i, x, y
+
+  for (i = 0; i < 20; i++) {
+    x = (smokeCanvasWidth * 0.5) + random(-100, 100)
+    y = (smokeCanvasHeight * 0.5) + random(-100, 100)
+    spawn(x, y)
+  }
+}
+
+function spawn(x, y) {
+  if (particles.length >= MAX_PARTICLES)
+    pool.push(particles.shift())
+
+  const particle = pool.length ? pool.pop() : new Particle()
+  particle.init(x, y, random(10, 15 /* 40 */))
+
+  // particle.wander = random(0.5, 2.0)
+  particle.wander = 0
+  particle.color = COLOURS[Math.floor(Math.random() * COLOURS.length)]
+  // particle.drag = random(0.9, 0.99)
+  particle.drag = 1
+
+  // const theta = random(0, 2 * Math.PI)
+  // const theta = random(-0.1, 0.1)
+  const theta = 0
+  // const force = random(2, 8)
+  const force = random(2, 8)
+
+  particle.vx = Math.sin(theta) * force
+  particle.vy = Math.cos(theta) * force
+
+  particles.push(particle)
+}
+
+function update() {
+  let i, particle
+
+  for (i = particles.length - 1; i >= 0; i--) {
+    particle = particles[i]
+
+    if (particle.alive) particle.move()
+    else pool.push(particles.splice(i, 1)[0])
+  }
+}
+
+function draw() {
+  ctx.globalCompositeOperation = 'lighter'
+
+  for (let i = particles.length - 1; i >= 0; i--) {
+    particles[i].draw(ctx)
+  }
+}
+
+function step2() {
+  requestAnimationFrame(step2)
+
+  ctx.setTransform(1, 0, 0, 1, 0, 0)
+  ctx.scale(smokeScale, smokeScale)
+  ctx.translate(-(1000 - smokeCanvasWidth / smokeScale) / 2, -(1000 - svgHeight / smokeScale) / 2)
+  ctx.clearRect(0, 0, 1000, 1000)
+
+  logEl.innerText = [smokeCanvasWidth, smokeCanvasHeight, particles.length]
+
+  const max = random(1, 2)
+  for (let i = 0; i < max; i++) spawn(494, 740 + smokeY)
+  update()
+  draw()
+}
+
+init()
+step2()
