@@ -270,4 +270,8 @@ scrollHeight = scrollEl.offsetHeight
 lastTime = performance.now()
 requestAnimationFrame(step)
 
-document.documentElement.onclick = function() { this.requestFullscreen() }
+document.addEventListener('click', () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen()
+  }
+})
