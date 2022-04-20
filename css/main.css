@@ -219,6 +219,12 @@ h2 {
   margin: auto;
 }
 
+#s-trajectory-earth, #s-trajectory-earthSurface,
+#s-trajectory-mars, #s-trajectory-marsSurface,
+#s-trajectory-spacecraft {
+  will-change: transform;
+}
+
 
 /* Scene 3 */
 
@@ -236,8 +242,19 @@ h2 {
   height: 100%;
 }
 
-#s-launch-rocket, #s-launch-tower1Light, #s-launch-tower2Light, #s-launch-stand1, #s-launch-stand2 {
+#s-launch-rocket, #s-launch-side1, #s-launch-side2,
+#s-launch-stand1, #s-launch-stand2, #s-launch-bigStand,
+#s-launch-tower1, #s-launch-tower2, #s-launch-stage,
+#s-launch-tower1Light, #s-launch-tower2Light,
+#s-launch-mainFlame, #s-launch-side1Flame, #s-launch-side2Flame {
   will-change: transform;
+}
+
+#s-launch-tower1 {
+  transform-origin: 252px 765px;
+}
+#s-launch-tower2 {
+  transform-origin: 756px 765px;
 }
 
 #s-launch-tower1Light, #s-launch-tower2Light {
@@ -262,6 +279,7 @@ h2 {
   top: 0;
   left: 0;
   width: 100%;
+  /* display: none; */
 }
 
 
@@ -285,6 +303,11 @@ h2 {
   left: 40%;
   width: 100vw;
   transform: translate(-50%, -50%);
+}
+
+#s-moi-spacecraft, #s-moi-spacecraftFire,
+#s-moi-marsSurface, #s-moi-marsShadow {
+  will-change: transform;
 }
 
 .moiText {

@@ -565,10 +565,14 @@
           <svg class="Svg Svg-trajectory" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
               <clipPath id="s-trajectory-earthClip">
-                <circle cx="230" cy="500" r="32" fill="#0079e0"/>
+                <circle cx="230" cy="500" r="32"/>
+                <rect x="108" y="472" width="1" height="1"/>
+                <rect x="342" y="530" width="1" height="1"/>
               </clipPath>
               <clipPath id="s-trajectory-marsClip">
-                <circle cx="86" cy="500" r="22" fill="#ff3800"/>
+                <circle cx="86" cy="500" r="22"/>
+                <rect x="-39" y="476" width="1" height="1"/>
+                <rect x="207" y="523" width="1" height="1"/>
               </clipPath>
 
               <radialGradient id="s-trajectory-sunGlow">
@@ -803,6 +807,11 @@
                 </linearGradient>
                 <linearGradient id="linear-gradient-3" x1="494" y1="776" x2="494" y2="830" xlink:href="#linear-gradient-2"/>
                 <linearGradient id="linear-gradient-4" x1="533" x2="533" xlink:href="#linear-gradient-2"/>
+                <radialGradient id="radial-gradient" cx="492" cy="674" r="200" gradientTransform="translate(-98.4 170.8) scale(1.2 0.8)" gradientUnits="userSpaceOnUse">
+                  <stop offset="0.2" stop-color="#fe0" stop-opacity="0.4"/>
+                  <stop offset="0.55" stop-color="#ff6500" stop-opacity="0.4"/>
+                  <stop offset="1" stop-color="#ff6500" stop-opacity="0"/>
+                </radialGradient>
               </defs>
               <rect width="1000" height="1000" fill="url(#linear-gradient)"/>
               <g>
@@ -923,7 +932,7 @@
                 <path d="M187.29,745.24l-61.56-38.78a50.51,50.51,0,0,0-26.12-7.76" fill="none" stroke="#9d2ee0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"/>
                 <path d="M1119.38,639.07a126.68,126.68,0,0,0-69.06,21.14L872.05,778.5" fill="none" stroke="#9d2ee0" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"/>
               </g>
-              <g>
+              <g id="s-launch-bigStand">
                 <g>
                   <line x1="537" y1="709" x2="537" y2="461" fill="none" stroke="#661bff" stroke-miterlimit="10" stroke-width="6"/>
                   <polyline points="528 709 536 683 528 659 536 634 528 610 536 585 528 560 536 536 528 511 536 486 528 461" fill="none" stroke="#661bff" stroke-miterlimit="10" stroke-width="3"/>
@@ -1044,6 +1053,7 @@
               <g id="s-launch-rocket">
                 <g id="s-launch-side1">
                   <g>
+                    <rect x="443" y="715" width="20" height="119" rx="10" fill="none"/>
                     <rect id="s-launch-side1FlameBg" x="443" y="715" width="20" height="109" rx="10" fill="#ff6d00"/>
                     <rect x="447" y="720" width="12" height="32" rx="6" fill="#fed50f"/>
                     <g id="s-launch-side1Flame">
@@ -1073,6 +1083,8 @@
                 </g>
                 <g id="s-launch-main">
                   <g>
+                    <circle cx="494" cy="740" r="30" fill="none"/>
+                    <rect x="484" y="731" width="20" height="119" rx="10" fill="none"/>
                     <circle id="s-launch-mainFlameCircle1" cx="494" cy="740" r="25" fill="#ff6d00"/>
                     <rect id="s-launch-mainFlameBg" x="484" y="731" width="20" height="109" rx="10" fill="#ff6d00"/>
                     <circle id="s-launch-mainFlameCircle2" cx="494" cy="740" r="16" fill="#fed50f"/>
@@ -1193,6 +1205,7 @@
                 </g>
                 <g id="s-launch-side2">
                   <g>
+                    <rect x="523" y="715" width="20" height="119" rx="10" fill="none"/>
                     <rect id="s-launch-side2FlameBg" x="523" y="715" width="20" height="109" rx="10" fill="#ff6d00"/>
                     <rect x="527" y="720" width="12" height="32" rx="6" fill="#fed50f"/>
                     <g id="s-launch-side2Flame">
@@ -1274,18 +1287,19 @@
                   <polyline points="589 690 550 690 535 706" fill="none" stroke="#ffc702" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
                 </g>
               </g>
+              <ellipse id="s-launch-glow" cx="492" cy="710" rx="240" ry="160" fill="url(#radial-gradient)" style="mix-blend-mode: lighten"/>
 
-              <animate xlink:href="#s-launch-mainFlameBg" attributeName="height" values="109; 119; 109" dur="0.5s" begin="-0.125s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
-              <animate xlink:href="#s-launch-side1FlameBg" attributeName="height" values="109; 119; 109" dur="0.5s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
-              <animate xlink:href="#s-launch-side2FlameBg" attributeName="height" values="109; 119; 109" dur="0.5s" begin="-0.25s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+              <animate xlink:href="#s-launch-mainFlameBg" attributeName="height" values="109; 119; 109" dur="0.4s" begin="-0.1s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+              <animate xlink:href="#s-launch-side1FlameBg" attributeName="height" values="109; 119; 109" dur="0.4s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+              <animate xlink:href="#s-launch-side2FlameBg" attributeName="height" values="109; 119; 109" dur="0.4s" begin="-0.2s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
 
               <animateTransform xlink:href="#s-launch-mainFlame" attributeName="transform" attributeType="XML" type="translate" from="0 0" to="0 30" dur="1s" repeatCount="indefinite"/>
               <animateTransform xlink:href="#s-launch-side1Flame" attributeName="transform" attributeType="XML" type="translate" from="0 0" to="0 30" dur="1s" repeatCount="indefinite"/>
               <animateTransform xlink:href="#s-launch-side2Flame" attributeName="transform" attributeType="XML" type="translate" from="0 0" to="0 30" dur="1s" repeatCount="indefinite"/>
 
-              <animate xlink:href="#s-launch-mainFlameCircle1" attributeName="r" values="25; 30; 25" dur="0.4s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
-              <animate xlink:href="#s-launch-mainFlameCircle2" attributeName="r" values="16; 20; 16" dur="0.4s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
-              <animate xlink:href="#s-launch-mainFlameCircle3" attributeName="r" values="13; 15; 13" dur="0.4s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+              <animate xlink:href="#s-launch-mainFlameCircle1" attributeName="r" values="23; 26; 23" dur="0.3s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+              <animate xlink:href="#s-launch-mainFlameCircle2" attributeName="r" values="16; 18; 16" dur="0.3s" begin="-0.25s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
+              <!-- <animate xlink:href="#s-launch-mainFlameCircle3" attributeName="r" values="13; 15; 13" dur="0.4s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/> -->
 
               <animate xlink:href="#s-launch-tower1LightCircle1" attributeName="r" values="10; 12; 10" dur="1.2s" begin="0s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
               <animate xlink:href="#s-launch-tower1LightCircle2" attributeName="r" values="7; 8; 7" dur="1.2s" begin="-0.1s" calcMode="spline" keySplines="0.5 0 0.5 1; 0.5 0 0.5 1" repeatCount="indefinite"/>
@@ -1295,7 +1309,7 @@
             </svg>
             <canvas class="RocketSmoke"></canvas>
             <svg class="Svg Svg-launch" viewBox="0 0 1000 1000" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <g>
+              <g id="s-launch-stage">
                 <g>
                   <polygon points="675 765 330 765 324 744 681 744 675 765" fill="#18028e"/>
                   <polygon points="327.14 755 330 765 675 765 677.86 755 327.14 755" fill="#472be7"/>
@@ -1373,6 +1387,7 @@
                 <line x1="252" y1="485" x2="252" y2="461" fill="none" stroke="#1f03b7" stroke-miterlimit="10" stroke-width="4"/>
                 <circle cx="252" cy="461" r="5" fill="#ff6500"/>
                 <g id="s-launch-tower1Light">
+                  <circle cx="252" cy="461" r="12" fill="none"/>
                   <circle id="s-launch-tower1LightCircle1" cx="252" cy="461" r="11" fill="#ffb702" opacity="0.25"/>
                   <circle id="s-launch-tower1LightCircle2" cx="252" cy="461" r="8" fill="#ffb702" opacity="0.35"/>
                   <circle cx="252" cy="461" r="5" fill="#ffb702"/>
@@ -1408,6 +1423,7 @@
                 <line x1="756" y1="485" x2="756" y2="461" fill="none" stroke="#1f03b7" stroke-miterlimit="10" stroke-width="4"/>
                 <circle cx="756" cy="461" r="5" fill="#ff6500"/>
                 <g id="s-launch-tower2Light">
+                  <circle cx="756" cy="461" r="12" fill="none"/>
                   <circle id="s-launch-tower2LightCircle1" cx="756" cy="461" r="11" fill="#ffb702" opacity="0.25"/>
                   <circle id="s-launch-tower2LightCircle2" cx="756" cy="461" r="8" fill="#ffb702" opacity="0.35"/>
                   <circle cx="756" cy="461" r="5" fill="#ffb702"/>
@@ -1530,8 +1546,9 @@
                 <defs>
                   <clipPath id="s-moi-marsClip">
                     <circle cx="132" cy="1300" r="200" fill="#c53445"/>
+                    <rect x="1150" y="1089" width="1" height="422"/>
                   </clipPath>
-                  <mask id="s-moi-shadowCutout">
+                  <mask id="s-moi-marsShadowCutout">
                     <rect x="-68" y="1100" width="400" height="400" fill="white"/>
                     <circle cx="-20" cy="1300" r="250" fill="black"/>
                   </mask>
@@ -1546,7 +1563,7 @@
                   <circle cx="132" cy="1300" r="210" fill="#855ba9" opacity="0.14"/>
                   <circle cx="132" cy="1300" r="200" fill="#c53445"/>
                   <g clip-path="url(#s-moi-marsClip)">
-                    <g opacity="0.35">
+                    <g id="s-moi-marsSurface" opacity="0.35">
                       <g fill="#000052">
                         <path d="M114.36,1132a14,14,0,0,1-14,14H90.18a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14H222.55a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H156.36a14,14,0,0,1-14-14h0a14,14,0,0,1,14-14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H52a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h48.36a14,14,0,0,1,14,14Z"/>
                         <path d="M109.27,1258a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h78.91a14,14,0,0,0,14-14h0a14,14,0,0,1,14-14h56a14,14,0,0,0,14-14h0a14,14,0,0,0-14-14H246.73a14,14,0,0,1-14-14h0a14,14,0,0,0-14-14H129.64a14,14,0,0,0-14,14h0a14,14,0,0,0,14,14h29.27a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14Z"/>
@@ -1593,7 +1610,9 @@
                       </g>
                       <animateTransform attributeName="transform" attributeType="XML" type="translate" from="0" to="-800" dur="25s" repeatCount="indefinite"/>
                     </g>
-                    <rect id="s-moi-shadow" x="-68" y="1100" width="400" height="400" mask="url(#s-moi-shadowCutout)" fill="#360043" opacity="0.4"/>
+                    <g id="s-moi-marsShadow" opacity="0.4">
+                      <rect x="-68" y="1100" width="400" height="400" mask="url(#s-moi-marsShadowCutout)" fill="#360043"/>
+                    </g>
                   </g>
                 </g>
 

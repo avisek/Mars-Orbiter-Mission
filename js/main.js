@@ -12,10 +12,17 @@ const s1MarsShadow = document.querySelector('#s-mars-shadow')
 const s1Tip = document.querySelector('.Tip')
 
 const s3Rocket = document.querySelector('#s-launch-rocket')
+const s3RocketSide1 = document.querySelector('#s-launch-side1')
+const s3RocketSide2 = document.querySelector('#s-launch-side2')
 const s3Stand1 = document.querySelector('#s-launch-stand1')
 const s3Stand2 = document.querySelector('#s-launch-stand2')
+const s3BigStand = document.querySelector('#s-launch-bigStand')
+const s3Stage = document.querySelector('#s-launch-stage')
+const s3Tower1 = document.querySelector('#s-launch-tower1')
+const s3Tower2 = document.querySelector('#s-launch-tower2')
 const s3Tower1Light = document.querySelector('#s-launch-tower1Light')
 const s3Tower2Light = document.querySelector('#s-launch-tower2Light')
+const s3Glow = document.querySelector('#s-launch-glow')
 const s3Svg = document.querySelector('.Svg-launch')
 const s3Ground = document.querySelector('#s-launch-ground')
 
@@ -26,6 +33,21 @@ const s5SpacecraftFire = document.querySelector('#s-moi-spacecraftFire')
 const s5Texts = document.querySelectorAll('.moiText')
 
 const s6Credit = document.querySelector('.Credit')
+
+const SHAKE = [
+  // [tranlateX, translateY, rotate]
+  [ 2,  1,  0],
+  [-1, -2, -1],
+  [-3,  0,  1],
+  [ 0,  2,  0],
+  [ 1, -1,  1],
+  [-1,  2, -1],
+  [-3,  1,  0],
+  [ 2,  1, -1],
+  [-1, -1,  1],
+  [ 2,  2,  0],
+  [ 1, -2, -1]
+].map(s => [s[0]/8, s[1]/8, s[2]/8])
 
 const smokeCanvas = document.querySelector('.RocketSmoke')
 const ctx = smokeCanvas.getContext("2d")
@@ -241,20 +263,43 @@ function step(now) {
   const s3 = (sy + containerHeight - sceneRects[2].top) / (sceneRects[2].height + containerHeight)
   if (s3 >= 0 && s3 <= 1) {
     s5Bg.style.setProperty('--t', -121)
+    // logEl.innerText = s3
+
+    const shakeIndex = (now / 70) << 0
+    const shake1 = SHAKE[(shakeIndex + 0) % 10]
+    const shake2 = SHAKE[(shakeIndex + 3) % 10]
+    const shake3 = SHAKE[(shakeIndex + 6) % 10]
+
+    const shakeIntensity0 = Math.min(Math.max((s3 - 0.26) / 0.12, 0), 1)
+    const shakeIntensity = shakeIntensity0 - Math.min(Math.max((s3 - 0.6) / 0.2, 0), 1)
+
     //                             Start Duration Scale down so it wont go above 1
     let rocketTranslation = ((s3 - 0.32) / 0.5) / 1.36
     rocketTranslation = cubicBezier(.25,0,.5,.1, rocketTranslation) * (sceneRects[2].height / 2) * 1.36
-    s3Rocket.style.setProperty('transform', `translateY(${-rocketTranslation}px)`)
     smokeY = -rocketTranslation
+    s3Rocket.style.setProperty('transform', `translate(${shake1[0] * shakeIntensity0}px, ${-rocketTranslation + shake1[1] * shakeIntensity0}px)`)
+
+    s3RocketSide1.style.setProperty('transform', `translate(${shake2[0] * shakeIntensity0 * 0.25}px, ${shake2[1] * shakeIntensity0}px)`)
+    s3RocketSide2.style.setProperty('transform', `translate(${shake3[0] * shakeIntensity0 * 0.25}px, ${shake3[1] * shakeIntensity0}px)`)
+
+    s3Stage.style.setProperty('transform', `translate(${shake2[0] * shakeIntensity}px, ${shake2[1] * shakeIntensity}px)`)
 
     let standRotation = (s3 - 0.26) / 0.12
-    standRotation = cubicBezier(.5,0,.6,1, standRotation) * 7
-    s3Stand1.style.setProperty('transform', `rotate(${-standRotation}deg)`)
-    s3Stand2.style.setProperty('transform', `rotate(${standRotation}deg)`)
+    standRotation = cubicBezier(.5,0,.6,1, standRotation)
+    s3Stand1.style.setProperty('transform', `rotate(${standRotation * -7}deg) translate(${shake2[0] * shakeIntensity}px, ${shake2[1] * shakeIntensity}px)`)
+    s3Stand2.style.setProperty('transform', `rotate(${standRotation * 7}deg) translate(${shake2[0] * shakeIntensity}px, ${shake2[1] * shakeIntensity}px)`)
+
+    s3BigStand.style.setProperty('transform', `translate(${shake2[0] * shakeIntensity}px, ${shake2[1] * shakeIntensity}px)`)
+
+    s3Tower1.style.setProperty('transform', `rotate(${shake1[2] * shakeIntensity}deg)`)
+    s3Tower2.style.setProperty('transform', `rotate(${shake2[2] * shakeIntensity}deg)`)
 
     let towerLight = s3 > 0.33 ? 1 : 0
     s3Tower1Light.style.setProperty('transform', `scale(${towerLight})`)
     s3Tower2Light.style.setProperty('transform', `scale(${towerLight})`)
+
+    let glow = Math.min(Math.max((s3 - 0.4) / 0.1, 0), 1) - Math.min(Math.max((s3 - 0.6) / 0.2, 0), 1)
+    s3Glow.style.setProperty('opacity', glow)
   }
 
     // Scene 5
@@ -347,7 +392,7 @@ class Particle {
     // this.radius *= 1.02 /* 0.96 */
     this.radius += 0.5
     // if (this.y < 740 + smokeY) this.radius += 1
-    this.alive = this.radius < 60
+    this.alive = this.radius < 60 && this.y < 765
   }
 
   draw(ctx) {
@@ -422,7 +467,7 @@ function step2() {
   ctx.translate(-(1000 - smokeCanvasWidth / smokeScale) / 2, -(1000 - svgHeight / smokeScale) / 2)
   ctx.clearRect(0, 0, 1000, 1000)
 
-  logEl.innerText = [smokeCanvasWidth, smokeCanvasHeight, particles.length]
+  // logEl.innerText = [smokeCanvasWidth, smokeCanvasHeight, particles.length]
 
   const max = random(1, 2)
   for (let i = 0; i < max; i++) spawn(494, 740 + smokeY)
