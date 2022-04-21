@@ -47,7 +47,7 @@ const SHAKE = [
   [-1, -1,  1],
   [ 2,  2,  0],
   [ 1, -2, -1]
-].map(s => [s[0]/8, s[1]/8, s[2]/8])
+].map(s => [s[0]/6, s[1]/6, s[2]/6])
 
 const smokeCanvas = document.querySelector('.RocketSmoke')
 const ctx = smokeCanvas.getContext("2d")
@@ -390,9 +390,10 @@ class Particle {
     this.vy += Math.cos(this.theta) * 0.01
 
     // this.radius *= 1.02 /* 0.96 */
-    this.radius += 0.5
+    this.radius += 0.5 - Math.max((740 + smokeY - this.y) / 100, 0)
+    if (this.radius < 0) this.radius = 0
     // if (this.y < 740 + smokeY) this.radius += 1
-    this.alive = this.radius < 60 && this.y < 765
+    this.alive = this.radius < 60 && this.radius > 0 && this.y < 765
   }
 
   draw(ctx) {
