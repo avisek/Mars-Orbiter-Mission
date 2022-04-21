@@ -33,6 +33,8 @@ const s5SpacecraftFire = document.querySelector('#s-moi-spacecraftFire')
 const s5Texts = document.querySelectorAll('.moiText')
 
 const s6Credit = document.querySelector('.Credit')
+const s6CreditLabel = document.querySelector('.Credit_Label')
+const s6CreditCheckbox = document.querySelector('.Credit_Checkbox')
 
 const SHAKE = [
   // [tranlateX, translateY, rotate]
@@ -339,7 +341,10 @@ onResize()
 lastTime = performance.now()
 requestAnimationFrame(step)
 
-document.addEventListener('click', () => {
+document.addEventListener('click', e => {
+  if (s6CreditLabel.contains(e.target) || e.target == s6CreditCheckbox) {
+    return
+  }
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen()
   }
