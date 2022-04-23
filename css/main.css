@@ -497,6 +497,7 @@ h2 {
   position: relative;
   padding: 0.5rem;
   margin: -0.5rem;
+  cursor: pointer;
 }
 
 .Credit_Heart {
