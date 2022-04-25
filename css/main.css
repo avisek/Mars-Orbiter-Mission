@@ -8,19 +8,19 @@ html, body {
 }
 
 html {
-  font-size: clamp(1rem, 2.5vw, 4rem);
-  user-select: none;
+  font-size: calc(1.01vw + 1.43vh);
 }
 
 body {
   margin: 0;
-  font-family: 'Comfortaa', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Comfortaa', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  overscroll-behavior: none;
   background-color: black;
   color: white;
+  overscroll-behavior: none;
+  user-select: none;
 }
 
 .Log {
@@ -76,7 +76,6 @@ body {
 p, ul {
   margin-top: 0;
   margin-bottom: 5vw;
-  font-size: clamp(16px, 1.8vw, 1rem);
 }
 
 p {
@@ -87,7 +86,7 @@ h2 {
   margin-top: 1rem;
   margin-bottom: 0.6rem;
   margin-bottom: 2.5vw;
-  font-size: 1.6rem;
+  font-size: max(1.6rem, 4vw);
   font-weight: 300;
   line-height: 1.2;
 }
@@ -118,9 +117,9 @@ h2 {
 .Title {
   top: 6vw;
   left: 5vw;
-  margin-right: 11rem;
+  margin-right: 12rem;
   color: #ff4054;
-  font-size: clamp(1rem, 2rem + 2.5vh, 4rem);
+  font-size: 3.375rem;
   font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
@@ -130,14 +129,14 @@ h2 {
   top: 6vw;
   right: 5vw;
   color: #ff4054;
-  font-size: clamp(1rem, 0.9rem + 1.4vh, 4rem);
+  font-size: 1.625rem;
   font-weight: 700;
 }
 
 .Lead {
   left: 5vw;
-  top: max(calc(55vmin - (50vmax - (100vmax - 100vmin)) * 0.2), 26vh);
-  font-size: clamp(1rem, 0.9rem + 1.4vh, 4rem);
+  top: max(55vmin - (50vmax - (100vmax - 100vmin)) * 0.2, 13rem);
+  font-size: 1.625rem;
   font-weight: 300;
   width: calc(12ch + (100vmax - 100vh) * 0.3);
 }
@@ -145,7 +144,7 @@ h2 {
 .Tip {
   left: 5vw;
   bottom: 4vw;
-  /* font-size: 1rem; */
+  font-size: 1rem;
   font-weight: 300;
   transform: translateY(calc(100% + 4vw));
   animation: scrollTip 1s cubic-bezier(0, 0, 0, 1) 9s forwards;
@@ -328,19 +327,19 @@ h2 {
 
 .moiText > h2 {
   margin: 0;
-  font-size: 2.4rem;
+  font-size: max(2.4rem, 6vw);
   font-weight: 300;
   line-height: 1.2;
 }
 .moiText > h3 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: max(1.4rem, 3.5vw);
   font-weight: 300;
   line-height: 1.2;
 }
 .moiText p {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: max(0.8rem, 2vw);
   font-weight: 300;
   line-height: 1.5;
 }
@@ -462,7 +461,7 @@ h2 {
 .Credit_Head {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 1.2rem;
+  font-size: max(1.2rem, 3vw);
   font-weight: 300;
   line-height: 1.2;
   text-align: center;
@@ -472,7 +471,7 @@ h2 {
 
 .Credit_Body {
   margin-bottom: 0;
-  font-size: 0.8rem;
+  font-size: max(0.8rem, 2vw);
   font-weight: 300;
   text-align: center;
   pointer-events: none;
