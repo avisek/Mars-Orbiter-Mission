@@ -35,6 +35,7 @@ const s5Texts = document.querySelectorAll('.moiText')
 const s6Credit = document.querySelector('.Credit')
 const s6CreditLabel = document.querySelector('.Credit_Label')
 const s6CreditCheckbox = document.querySelector('.Credit_Checkbox')
+const s6CreditLink = document.querySelector('.Credit_Link')
 
 const SHAKE = [
   // [tranlateX, translateY, rotate]
@@ -342,7 +343,7 @@ lastTime = performance.now()
 requestAnimationFrame(step)
 
 document.addEventListener('click', e => {
-  if (s6CreditLabel.contains(e.target) || e.target == s6CreditCheckbox) {
+  if (s6CreditLabel.contains(e.target) || [s6CreditCheckbox, s6CreditLink].includes(e.target)) {
     return
   }
   if (!document.fullscreenElement) {

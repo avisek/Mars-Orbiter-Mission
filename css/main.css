@@ -21,6 +21,7 @@ body {
   color: white;
   overscroll-behavior: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .Log {
@@ -511,6 +512,29 @@ h2 {
 .Credit_Checkbox:checked ~ .Credit_Head > .Credit_Label > .Credit_Heart {
   fill: #ff4054;
   stroke: #ff4054;
+}
+
+.Credit_Link {
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+  text-shadow:
+    -0.5px    0px transparent,
+     0.5px    0px transparent,
+       0px -0.5px transparent,
+       0px  0.5px transparent;
+  transition: color 0.5s, text-shadow 0.5s;
+}
+.Credit_Link:hover {
+  color: #ff4054;
+  text-shadow:
+    -0.5px    0px currentColor,
+     0.5px    0px currentColor,
+       0px -0.5px currentColor,
+       0px  0.5px currentColor;
+}
+.Credit_Checkbox:checked ~ .Credit_Head > .Credit_Link {
+  pointer-events: all;
 }
 
 
