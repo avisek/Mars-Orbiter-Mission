@@ -49,7 +49,7 @@ const SHAKE = [
   [-1, -1,  1],
   [ 2,  2,  0],
   [ 1, -2, -1]
-].map(s => [s[0]/6, s[1]/6, s[2]/6])
+].map(s => [s[0]/6, s[1]/6, s[2]/8])
 
 const smokeCanvas = document.querySelector('.RocketSmoke')
 const ctx = smokeCanvas.getContext("2d")
@@ -235,8 +235,8 @@ function step(now) {
     velocityX += -velocityX * 0.003 * dt
     velocityY += -velocityY * 0.003 * dt
 
-    if (Math.abs(velocityX) < 0.01) velocityX = 0
-    if (Math.abs(velocityY) < 0.01) velocityY = 0
+    // if (Math.abs(velocityX) < 0.01) velocityX = 0
+    // if (Math.abs(velocityY) < 0.01) velocityY = 0
 
     scrollX += velocityX * dt
     scrollY += velocityY * dt
