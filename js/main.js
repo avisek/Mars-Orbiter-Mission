@@ -236,14 +236,28 @@ function step(now) {
     velocityX += -velocityX * 0.003 * dt
     velocityY += -velocityY * 0.003 * dt
 
-    // if (Math.abs(velocityX) < 0.01) velocityX = 0
-    // if (Math.abs(velocityY) < 0.01) velocityY = 0
+    if (Math.abs(velocityX) < 0.001) velocityX = 0
+    if (Math.abs(velocityY) < 0.001) velocityY = 0
 
     scrollX += velocityX * dt
     scrollY += velocityY * dt
 
-    scrollX = Math.min(Math.max(0, scrollX), scrollWidth - containerWidth)
-    scrollY = Math.min(Math.max(0, scrollY), scrollHeight - containerHeight)
+    // scrollX = Math.min(Math.max(0, scrollX), scrollWidth - containerWidth)
+    // scrollY = Math.min(Math.max(0, scrollY), scrollHeight - containerHeight)
+    if (scrollX < 0) {
+      scrollX = velocityX = 0
+    }
+    if (scrollY < 0) {
+      scrollY = velocityY = 0
+    }
+    if (scrollX > scrollWidth - containerWidth) {
+      scrollX = scrollWidth - containerWidth
+      velocityX = 0
+    }
+    if (scrollY > scrollHeight - containerHeight) {
+      scrollY = scrollHeight - containerHeight
+      velocityY = 0
+    }
   }
 
   scrollXSmoothed += (scrollX - scrollXSmoothed) / 5

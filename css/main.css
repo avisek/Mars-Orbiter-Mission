@@ -519,19 +519,19 @@ h2 {
   text-decoration: none;
   pointer-events: none;
   text-shadow:
-    -0.5px    0px transparent,
-     0.5px    0px transparent,
-       0px -0.5px transparent,
-       0px  0.5px transparent;
+    -0.02em -0.02em transparent,
+    -0.02em  0.02em transparent,
+     0.02em -0.02em transparent,
+     0.02em  0.02em transparent;
   transition: color 0.5s, text-shadow 0.5s;
 }
 .Credit_Link:hover {
   color: #ff4054;
   text-shadow:
-    -0.5px    0px currentColor,
-     0.5px    0px currentColor,
-       0px -0.5px currentColor,
-       0px  0.5px currentColor;
+    -0.02em -0.02em currentColor,
+    -0.02em  0.02em currentColor,
+     0.02em -0.02em currentColor,
+     0.02em  0.02em currentColor;
 }
 .Credit_Checkbox:checked ~ .Credit_Head > .Credit_Link {
   pointer-events: all;
